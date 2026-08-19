@@ -1,0 +1,1 @@
+export type Employee = { id: string; name: string; email: string; department: string; branch: string; jobTitle: string; activeAssets: number; lastHandover: string; status: 'active' | 'on_leave' | 'inactive'; phone: string };

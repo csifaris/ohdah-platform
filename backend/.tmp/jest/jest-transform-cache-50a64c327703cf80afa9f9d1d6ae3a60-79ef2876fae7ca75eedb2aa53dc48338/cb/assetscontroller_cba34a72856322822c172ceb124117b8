@@ -1,0 +1,102 @@
+31b839ec627658f4f8459db39efab362
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AssetsController = void 0;
+const common_1 = require("@nestjs/common");
+const client_1 = require("@prisma/client");
+const assets_service_1 = require("./assets.service");
+const create_asset_category_dto_1 = require("./dto/create-asset-category.dto");
+const create_asset_dto_1 = require("./dto/create-asset.dto");
+const update_asset_dto_1 = require("./dto/update-asset.dto");
+let AssetsController = class AssetsController {
+    assets;
+    constructor(assets) {
+        this.assets = assets;
+    }
+    create(dto) { return this.assets.create(dto); }
+    findAll(organizationId, search, status) { return this.assets.findAll(organizationId, search, status); }
+    categories(organizationId) { return this.assets.findCategories(organizationId); }
+    createCategory(dto) { return this.assets.createCategory(dto); }
+    findOne(id) { return this.assets.findOne(id); }
+    update(id, dto) { return this.assets.update(id, dto); }
+    updateStatus(id, status) { return this.assets.updateStatus(id, status); }
+    remove(id) { return this.assets.remove(id); }
+};
+exports.AssetsController = AssetsController;
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_asset_dto_1.CreateAssetDto]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('organizationId')),
+    __param(1, (0, common_1.Query)('search')),
+    __param(2, (0, common_1.Query)('status')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, String]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)('categories'),
+    __param(0, (0, common_1.Query)('organizationId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "categories", null);
+__decorate([
+    (0, common_1.Post)('categories'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_asset_category_dto_1.CreateAssetCategoryDto]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "createCategory", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_asset_dto_1.UpdateAssetDto]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "update", null);
+__decorate([
+    (0, common_1.Patch)(':id/status'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)('status')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "updateStatus", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AssetsController.prototype, "remove", null);
+exports.AssetsController = AssetsController = __decorate([
+    (0, common_1.Controller)('assets'),
+    __metadata("design:paramtypes", [assets_service_1.AssetsService])
+], AssetsController);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcYXNzZXRzLmNvbnRyb2xsZXIudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsMkNBQTBGO0FBQzFGLDJDQUE2QztBQUM3QyxxREFBaUQ7QUFDakQsK0VBQXlFO0FBQ3pFLDZEQUF3RDtBQUN4RCw2REFBd0Q7QUFHakQsSUFBTSxnQkFBZ0IsR0FBdEIsTUFBTSxnQkFBZ0I7SUFDRTtJQUE3QixZQUE2QixNQUFxQjtRQUFyQixXQUFNLEdBQU4sTUFBTSxDQUFlO0lBQUcsQ0FBQztJQUM5QyxNQUFNLENBQVMsR0FBbUIsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUN4RSxPQUFPLENBQTBCLGNBQXNCLEVBQW1CLE1BQWUsRUFBbUIsTUFBb0IsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLGNBQWMsRUFBRSxNQUFNLEVBQUUsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3JMLFVBQVUsQ0FBMEIsY0FBc0IsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsY0FBYyxDQUFDLGNBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNqSCxjQUFjLENBQVMsR0FBMkIsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsY0FBYyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUN2RyxPQUFPLENBQWMsRUFBVSxJQUFJLE9BQU8sSUFBSSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ2xFLE1BQU0sQ0FBYyxFQUFVLEVBQVUsR0FBbUIsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLEVBQUUsRUFBRSxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDN0YsWUFBWSxDQUFjLEVBQVUsRUFBa0IsTUFBbUIsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsWUFBWSxDQUFDLEVBQUUsRUFBRSxNQUFNLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDakksTUFBTSxDQUFjLEVBQVUsSUFBSSxPQUFPLElBQUksQ0FBQyxNQUFNLENBQUMsTUFBTSxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUMsQ0FBQztDQUNsRixDQUFBO0FBVlksNENBQWdCO0FBRW5CO0lBQVAsSUFBQSxhQUFJLEdBQUU7SUFBUyxXQUFBLElBQUEsYUFBSSxHQUFFLENBQUE7O3FDQUFNLGlDQUFjOzs4Q0FBcUM7QUFDeEU7SUFBTixJQUFBLFlBQUcsR0FBRTtJQUFVLFdBQUEsSUFBQSxjQUFLLEVBQUMsZ0JBQWdCLENBQUMsQ0FBQTtJQUEwQixXQUFBLElBQUEsY0FBSyxFQUFDLFFBQVEsQ0FBQyxDQUFBO0lBQW1CLFdBQUEsSUFBQSxjQUFLLEVBQUMsUUFBUSxDQUFDLENBQUE7Ozs7K0NBQXNGO0FBQ3JMO0lBQWxCLElBQUEsWUFBRyxFQUFDLFlBQVksQ0FBQztJQUFhLFdBQUEsSUFBQSxjQUFLLEVBQUMsZ0JBQWdCLENBQUMsQ0FBQTs7OztrREFBK0U7QUFDakg7SUFBbkIsSUFBQSxhQUFJLEVBQUMsWUFBWSxDQUFDO0lBQWlCLFdBQUEsSUFBQSxhQUFJLEdBQUUsQ0FBQTs7cUNBQU0sa0RBQXNCOztzREFBNkM7QUFDdkc7SUFBWCxJQUFBLFlBQUcsRUFBQyxLQUFLLENBQUM7SUFBVSxXQUFBLElBQUEsY0FBSyxFQUFDLElBQUksQ0FBQyxDQUFBOzs7OytDQUFnRDtBQUNsRTtJQUFiLElBQUEsY0FBSyxFQUFDLEtBQUssQ0FBQztJQUFTLFdBQUEsSUFBQSxjQUFLLEVBQUMsSUFBSSxDQUFDLENBQUE7SUFBYyxXQUFBLElBQUEsYUFBSSxHQUFFLENBQUE7OzZDQUFNLGlDQUFjOzs4Q0FBeUM7QUFDN0Y7SUFBcEIsSUFBQSxjQUFLLEVBQUMsWUFBWSxDQUFDO0lBQWUsV0FBQSxJQUFBLGNBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTtJQUFjLFdBQUEsSUFBQSxhQUFJLEVBQUMsUUFBUSxDQUFDLENBQUE7Ozs7b0RBQXNFO0FBQ2pJO0lBQWQsSUFBQSxlQUFNLEVBQUMsS0FBSyxDQUFDO0lBQVMsV0FBQSxJQUFBLGNBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTs7Ozs4Q0FBK0M7MkJBVHRFLGdCQUFnQjtJQUQ1QixJQUFBLG1CQUFVLEVBQUMsUUFBUSxDQUFDO3FDQUVrQiw4QkFBYTtHQUR2QyxnQkFBZ0IsQ0FVNUIiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcYXNzZXRzLmNvbnRyb2xsZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQm9keSwgQ29udHJvbGxlciwgRGVsZXRlLCBHZXQsIFBhcmFtLCBQYXRjaCwgUG9zdCwgUXVlcnkgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5pbXBvcnQgeyBBc3NldFN0YXR1cyB9IGZyb20gJ0BwcmlzbWEvY2xpZW50JztcbmltcG9ydCB7IEFzc2V0c1NlcnZpY2UgfSBmcm9tICcuL2Fzc2V0cy5zZXJ2aWNlJztcbmltcG9ydCB7IENyZWF0ZUFzc2V0Q2F0ZWdvcnlEdG8gfSBmcm9tICcuL2R0by9jcmVhdGUtYXNzZXQtY2F0ZWdvcnkuZHRvJztcbmltcG9ydCB7IENyZWF0ZUFzc2V0RHRvIH0gZnJvbSAnLi9kdG8vY3JlYXRlLWFzc2V0LmR0byc7XG5pbXBvcnQgeyBVcGRhdGVBc3NldER0byB9IGZyb20gJy4vZHRvL3VwZGF0ZS1hc3NldC5kdG8nO1xuXG5AQ29udHJvbGxlcignYXNzZXRzJylcbmV4cG9ydCBjbGFzcyBBc3NldHNDb250cm9sbGVyIHtcbiAgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBhc3NldHM6IEFzc2V0c1NlcnZpY2UpIHt9XG4gIEBQb3N0KCkgY3JlYXRlKEBCb2R5KCkgZHRvOiBDcmVhdGVBc3NldER0bykgeyByZXR1cm4gdGhpcy5hc3NldHMuY3JlYXRlKGR0byk7IH1cbiAgQEdldCgpIGZpbmRBbGwoQFF1ZXJ5KCdvcmdhbml6YXRpb25JZCcpIG9yZ2FuaXphdGlvbklkOiBzdHJpbmcsIEBRdWVyeSgnc2VhcmNoJykgc2VhcmNoPzogc3RyaW5nLCBAUXVlcnkoJ3N0YXR1cycpIHN0YXR1cz86IEFzc2V0U3RhdHVzKSB7IHJldHVybiB0aGlzLmFzc2V0cy5maW5kQWxsKG9yZ2FuaXphdGlvbklkLCBzZWFyY2gsIHN0YXR1cyk7IH1cbiAgQEdldCgnY2F0ZWdvcmllcycpIGNhdGVnb3JpZXMoQFF1ZXJ5KCdvcmdhbml6YXRpb25JZCcpIG9yZ2FuaXphdGlvbklkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMuYXNzZXRzLmZpbmRDYXRlZ29yaWVzKG9yZ2FuaXphdGlvbklkKTsgfVxuICBAUG9zdCgnY2F0ZWdvcmllcycpIGNyZWF0ZUNhdGVnb3J5KEBCb2R5KCkgZHRvOiBDcmVhdGVBc3NldENhdGVnb3J5RHRvKSB7IHJldHVybiB0aGlzLmFzc2V0cy5jcmVhdGVDYXRlZ29yeShkdG8pOyB9XG4gIEBHZXQoJzppZCcpIGZpbmRPbmUoQFBhcmFtKCdpZCcpIGlkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMuYXNzZXRzLmZpbmRPbmUoaWQpOyB9XG4gIEBQYXRjaCgnOmlkJykgdXBkYXRlKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nLCBAQm9keSgpIGR0bzogVXBkYXRlQXNzZXREdG8pIHsgcmV0dXJuIHRoaXMuYXNzZXRzLnVwZGF0ZShpZCwgZHRvKTsgfVxuICBAUGF0Y2goJzppZC9zdGF0dXMnKSB1cGRhdGVTdGF0dXMoQFBhcmFtKCdpZCcpIGlkOiBzdHJpbmcsIEBCb2R5KCdzdGF0dXMnKSBzdGF0dXM6IEFzc2V0U3RhdHVzKSB7IHJldHVybiB0aGlzLmFzc2V0cy51cGRhdGVTdGF0dXMoaWQsIHN0YXR1cyk7IH1cbiAgQERlbGV0ZSgnOmlkJykgcmVtb3ZlKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nKSB7IHJldHVybiB0aGlzLmFzc2V0cy5yZW1vdmUoaWQpOyB9XG59XG4iXSwidmVyc2lvbiI6M30=

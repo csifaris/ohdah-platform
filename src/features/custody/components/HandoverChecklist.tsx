@@ -1,0 +1,4 @@
+import { CheckSquare } from 'lucide-react';
+
+const items = ['الجهاز الرئيسي', 'الشاحن', 'الحقيبة', 'الملحقات'];
+export function HandoverChecklist({ checked, onChange }: { checked: string[]; onChange: (items: string[]) => void }) { const toggle = (item: string) => onChange(checked.includes(item) ? checked.filter((current) => current !== item) : [...checked, item]); return <section className="rounded-xl border border-border bg-white p-6 shadow-soft"><h2 className="mb-5 flex items-center gap-2 text-lg font-semibold"><CheckSquare className="text-primary" size={20} />قائمة التحقق من التسليم</h2><div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">{items.map((item) => <label className="flex cursor-pointer items-center gap-2 text-sm" key={item}><input checked={checked.includes(item)} className="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary" onChange={() => toggle(item)} type="checkbox" />{item}</label>)}</div></section>; }

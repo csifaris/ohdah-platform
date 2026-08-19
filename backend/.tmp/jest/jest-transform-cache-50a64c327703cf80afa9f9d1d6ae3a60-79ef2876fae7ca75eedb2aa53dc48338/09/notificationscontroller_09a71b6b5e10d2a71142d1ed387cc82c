@@ -1,0 +1,64 @@
+c8b97cf04e5f2b3d55012d48c1bef8b8
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.NotificationsController = void 0;
+const common_1 = require("@nestjs/common");
+const create_notification_dto_1 = require("./dto/create-notification.dto");
+const notifications_service_1 = require("./notifications.service");
+let NotificationsController = class NotificationsController {
+    notifications;
+    constructor(notifications) {
+        this.notifications = notifications;
+    }
+    create(dto) { return this.notifications.create(dto); }
+    findAll(recipientId, unreadOnly) { return this.notifications.findAll(recipientId, unreadOnly === 'true'); }
+    markRead(id) { return this.notifications.markRead(id); }
+    markAllRead(recipientId) { return this.notifications.markAllRead(recipientId); }
+};
+exports.NotificationsController = NotificationsController;
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_notification_dto_1.CreateNotificationDto]),
+    __metadata("design:returntype", void 0)
+], NotificationsController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('recipientId')),
+    __param(1, (0, common_1.Query)('unreadOnly')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], NotificationsController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Patch)(':id/read'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], NotificationsController.prototype, "markRead", null);
+__decorate([
+    (0, common_1.Patch)('read-all/:recipientId'),
+    __param(0, (0, common_1.Param)('recipientId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], NotificationsController.prototype, "markAllRead", null);
+exports.NotificationsController = NotificationsController = __decorate([
+    (0, common_1.Controller)('notifications'),
+    __metadata("design:paramtypes", [notifications_service_1.NotificationsService])
+], NotificationsController);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXG5vdGlmaWNhdGlvbnNcXG5vdGlmaWNhdGlvbnMuY29udHJvbGxlci50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7QUFBQSwyQ0FBa0Y7QUFDbEYsMkVBQXNFO0FBQ3RFLG1FQUErRDtBQUV4RCxJQUFNLHVCQUF1QixHQUE3QixNQUFNLHVCQUF1QjtJQUFnQztJQUE3QixZQUE2QixhQUFtQztRQUFuQyxrQkFBYSxHQUFiLGFBQWEsQ0FBc0I7SUFBRyxDQUFDO0lBQVMsTUFBTSxDQUFTLEdBQTBCLElBQUksT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFBUSxPQUFPLENBQXVCLFdBQW1CLEVBQXVCLFVBQW1CLElBQUksT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxXQUFXLEVBQUUsVUFBVSxLQUFLLE1BQU0sQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUFvQixRQUFRLENBQWMsRUFBVSxJQUFJLE9BQU8sSUFBSSxDQUFDLGFBQWEsQ0FBQyxRQUFRLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQWlDLFdBQVcsQ0FBdUIsV0FBbUIsSUFBSSxPQUFPLElBQUksQ0FBQyxhQUFhLENBQUMsV0FBVyxDQUFDLFdBQVcsQ0FBQyxDQUFDLENBQUMsQ0FBQztDQUFFLENBQUE7QUFBN2xCLDBEQUF1QjtBQUFnRjtJQUFQLElBQUEsYUFBSSxHQUFFO0lBQVMsV0FBQSxJQUFBLGFBQUksR0FBRSxDQUFBOztxQ0FBTSwrQ0FBcUI7O3FEQUE0QztBQUFRO0lBQU4sSUFBQSxZQUFHLEdBQUU7SUFBVSxXQUFBLElBQUEsY0FBSyxFQUFDLGFBQWEsQ0FBQyxDQUFBO0lBQXVCLFdBQUEsSUFBQSxjQUFLLEVBQUMsWUFBWSxDQUFDLENBQUE7Ozs7c0RBQWdHO0FBQW9CO0lBQWxCLElBQUEsY0FBSyxFQUFDLFVBQVUsQ0FBQztJQUFXLFdBQUEsSUFBQSxjQUFLLEVBQUMsSUFBSSxDQUFDLENBQUE7Ozs7dURBQXdEO0FBQWlDO0lBQS9CLElBQUEsY0FBSyxFQUFDLHVCQUF1QixDQUFDO0lBQWMsV0FBQSxJQUFBLGNBQUssRUFBQyxhQUFhLENBQUMsQ0FBQTs7OzswREFBNkU7a0NBQTNsQix1QkFBdUI7SUFEbkMsSUFBQSxtQkFBVSxFQUFDLGVBQWUsQ0FBQztxQ0FDdUQsNENBQW9CO0dBQTFGLHVCQUF1QixDQUFza0IiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXG5vdGlmaWNhdGlvbnNcXG5vdGlmaWNhdGlvbnMuY29udHJvbGxlci50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBCb2R5LCBDb250cm9sbGVyLCBHZXQsIFBhcmFtLCBQYXRjaCwgUG9zdCwgUXVlcnkgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5pbXBvcnQgeyBDcmVhdGVOb3RpZmljYXRpb25EdG8gfSBmcm9tICcuL2R0by9jcmVhdGUtbm90aWZpY2F0aW9uLmR0byc7XG5pbXBvcnQgeyBOb3RpZmljYXRpb25zU2VydmljZSB9IGZyb20gJy4vbm90aWZpY2F0aW9ucy5zZXJ2aWNlJztcbkBDb250cm9sbGVyKCdub3RpZmljYXRpb25zJylcbmV4cG9ydCBjbGFzcyBOb3RpZmljYXRpb25zQ29udHJvbGxlciB7IGNvbnN0cnVjdG9yKHByaXZhdGUgcmVhZG9ubHkgbm90aWZpY2F0aW9uczogTm90aWZpY2F0aW9uc1NlcnZpY2UpIHt9IEBQb3N0KCkgY3JlYXRlKEBCb2R5KCkgZHRvOiBDcmVhdGVOb3RpZmljYXRpb25EdG8pIHsgcmV0dXJuIHRoaXMubm90aWZpY2F0aW9ucy5jcmVhdGUoZHRvKTsgfSBAR2V0KCkgZmluZEFsbChAUXVlcnkoJ3JlY2lwaWVudElkJykgcmVjaXBpZW50SWQ6IHN0cmluZywgQFF1ZXJ5KCd1bnJlYWRPbmx5JykgdW5yZWFkT25seT86IHN0cmluZykgeyByZXR1cm4gdGhpcy5ub3RpZmljYXRpb25zLmZpbmRBbGwocmVjaXBpZW50SWQsIHVucmVhZE9ubHkgPT09ICd0cnVlJyk7IH0gQFBhdGNoKCc6aWQvcmVhZCcpIG1hcmtSZWFkKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nKSB7IHJldHVybiB0aGlzLm5vdGlmaWNhdGlvbnMubWFya1JlYWQoaWQpOyB9IEBQYXRjaCgncmVhZC1hbGwvOnJlY2lwaWVudElkJykgbWFya0FsbFJlYWQoQFBhcmFtKCdyZWNpcGllbnRJZCcpIHJlY2lwaWVudElkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMubm90aWZpY2F0aW9ucy5tYXJrQWxsUmVhZChyZWNpcGllbnRJZCk7IH0gfVxuIl0sInZlcnNpb24iOjN9

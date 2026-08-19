@@ -1,0 +1,422 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ohdah - استرجاع عهدة</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+<style>
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-primary": "#ffffff",
+                "background": "#f7f9fb",
+                "tertiary-fixed": "#d3e4fe",
+                "on-surface-variant": "#444651",
+                "on-error-container": "#93000a",
+                "on-error": "#ffffff",
+                "surface-bright": "#f7f9fb",
+                "on-primary-container": "#90a8ff",
+                "on-tertiary": "#ffffff",
+                "on-secondary-fixed": "#002113",
+                "secondary-fixed-dim": "#4edea3",
+                "surface-variant": "#e0e3e5",
+                "surface-container-highest": "#e0e3e5",
+                "error-container": "#ffdad6",
+                "primary": "#1e3a8a",
+                "surface-dim": "#d8dadc",
+                "on-secondary-fixed-variant": "#005236",
+                "on-primary-fixed": "#00164e",
+                "error": "#ba1a1a",
+                "on-tertiary-container": "#9dadc6",
+                "on-tertiary-fixed-variant": "#38485d",
+                "on-tertiary-fixed": "#0b1c30",
+                "on-secondary": "#ffffff",
+                "primary-container": "#1e3a8a",
+                "surface-container-lowest": "#ffffff",
+                "outline": "#757682",
+                "on-primary-fixed-variant": "#264191",
+                "on-background": "#191c1e",
+                "secondary-fixed": "#6ffbbe",
+                "secondary": "#006c49",
+                "on-secondary-container": "#00714d",
+                "surface-container": "#eceef0",
+                "surface-tint": "#4059aa",
+                "tertiary-container": "#314156",
+                "primary-fixed-dim": "#b6c4ff",
+                "inverse-surface": "#2d3133",
+                "surface-container-high": "#e6e8ea",
+                "outline-variant": "#c5c5d3",
+                "inverse-on-surface": "#eff1f3",
+                "primary-fixed": "#dce1ff",
+                "inverse-primary": "#b6c4ff",
+                "on-surface": "#191c1e",
+                "surface-container-low": "#f2f4f6",
+                "tertiary": "#1b2b3f",
+                "surface": "#f7f9fb",
+                "tertiary-fixed-dim": "#b7c8e1",
+                "secondary-container": "#6cf8bb",
+                "success": "#059669",
+                "warning": "#d97706"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "base": "8px",
+                "stack-sm": "4px",
+                "stack-lg": "24px",
+                "margin-desktop": "32px",
+                "stack-md": "12px",
+                "margin-mobile": "16px",
+                "gutter": "24px",
+                "container-max": "1440px"
+        },
+        "fontFamily": {
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ],
+                "title-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "60px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "title-md": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+</head>
+<body class="bg-background text-on-background font-body-sm flex min-h-screen overflow-x-hidden antialiased">
+<!-- SideNavBar -->
+<aside class="bg-surface-container-lowest dark:bg-surface-dim text-primary dark:text-primary-fixed font-label-caps text-label-caps h-screen w-64 fixed right-0 top-0 border-l border-outline-variant dark:border-outline shadow-md flex flex-col py-base gap-stack-md z-50">
+<div class="px-gutter py-stack-md mb-stack-lg text-center border-b border-surface-container-high">
+<div class="w-16 h-16 mx-auto bg-primary-container rounded-full flex items-center justify-center mb-stack-sm text-on-primary-container">
+<span class="material-symbols-outlined text-[32px]">corporate_fare</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-black text-primary dark:text-primary-fixed">Ohdah Management</h1>
+<p class="text-on-surface-variant dark:text-surface-variant mt-1 text-label-caps">Enterprise Asset Portal</p>
+</div>
+<nav class="flex-1 px-base flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="">Home</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="">Assets</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-primary-container text-on-primary-container font-bold rounded-lg cursor-pointer duration-200 hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
+<span class="">Handover/Return</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="">Requests</span>
+</a>
+</nav>
+<div class="px-base mt-auto border-t border-surface-container-high pt-stack-sm flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container hover:bg-surface-container-high transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-error hover:bg-error-container hover:text-on-error-container transition-all cursor-pointer duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="mr-64 flex-1 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-dim text-primary dark:text-primary-fixed font-body-sm text-body-sm w-full h-16 border-b border-outline-variant dark:border-outline shadow-sm flex flex-row-reverse justify-between items-center px-margin-desktop sticky top-0 z-40">
+<div class="flex items-center gap-4">
+<!-- Logo / Brand Space if search is on left (in LTR, so right in RTL) -->
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">Ohdah</span>
+<span class="text-on-surface-variant hidden md:inline">|</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline">عُهدة - إدارة الأصول</span>
+</div>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="relative w-64 hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-outline-variant text-on-surface rounded-full pl-10 pr-4 py-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-sm" placeholder="Search..." type="text">
+</div>
+<div class="flex items-center gap-2 border-r border-outline-variant pr-4 mr-4">
+<button class="p-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<button class="ml-2 w-8 h-8 rounded-full overflow-hidden border border-outline-variant flex items-center justify-center bg-surface-container hover:bg-surface-container-low transition-colors cursor-pointer active:opacity-80">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate user facing the camera with a neutral expression, clean background, high key lighting, modern minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm6CjZHd4c7hCArauglaoQYa3L3ppwNwlcIirtzSPpBneWVGmyI4VyzGC3AAUH8dKpDgaZbF0Y8KRYhRk82F9y32VupdeLoAcAqgKg78GTRzsPqRnLS9EYqYj6eTkIeV__X5XPhdKbZt8v0kCUzM4nOw_EN3E9ea0la_slNxi0cFoC1SfKKdLt4vr0Ow_Q_H7TXCQdd-o4TnACZd88Zp86E1Ajc6-r2_GvkLGQ1VExZsKPBJ1IxKMP">
+</button>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-margin-desktop bg-surface-bright flex flex-col items-center">
+<!-- Primary Column (Full Width Enterprise Style) -->
+<div class="w-full max-w-[1200px] flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 w-full">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">استرجاع عهدة</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-1">إدارة دورة حياة الأصول</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-lg border border-primary text-primary font-label-caps hover:bg-primary-fixed transition-colors">حفظ كمسودة</button>
+<button class="px-6 py-3 rounded-lg bg-primary text-on-primary font-label-caps hover:bg-primary-container shadow-sm transition-colors flex items-center gap-2 text-base">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+              تأكيد الاسترجاع
+            </button>
+</div>
+</div>
+<!-- 1. Large Custody Summary Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.08)] p-stack-lg w-full flex flex-col md:flex-row gap-gutter items-center">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-xl bg-surface-container flex items-center justify-center shrink-0 border border-outline-variant overflow-hidden">
+<img alt="MacBook" class="w-full h-full object-cover" data-alt="A top-down view of a modern sleek space grey MacBook Pro M2 sitting closed on a pristine white desk, corporate aesthetic, highly detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5kqbKdXKnCtY9Du_rt06FTdM9vmnIuO2kmR1-Iz0Ds8SCqhOZA5TN_0jVbHTYzmI8z2z_dPtjDDtSuC9UKT4Usxf8GUuhmg-Ef2j9we9mxIPab8L66a7kQkSyn7VgdPwnY6jsNxQj2Gx1v-wTGqhFw1qewWxTFibeIsbRUW9awceNbM0Opnu9bAnuWYMLm3L4OFT_XUTlVxY4KtQGn_apiMSJYTxNarlYGJpvgr6RXNnTXlcRtp6u">
+</div>
+<div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+<div class="col-span-1 md:col-span-2 lg:col-span-3 pb-2 border-b border-surface-container-high">
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-1">MacBook Pro M2</h3>
+<p class="text-on-surface-variant font-body-sm flex gap-2 items-center">
+<span class="material-symbols-outlined text-[16px]">qr_code</span> 
+  رقم الأصل: <strong class="text-on-surface">AST-2026-005</strong>
+</p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">رقم العهدة</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">OH-000126</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">الموظف المستلم</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">person</span> أحمد محمد
+</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">تاريخ التسليم</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface">19/08/2026</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant">الحالة الحالية</span>
+<span class="inline-block px-3 py-1 bg-success bg-opacity-10 text-success rounded-full text-sm font-semibold self-start border border-success border-opacity-20">نشطة</span>
+</div>
+</div>
+</section>
+<!-- 2. Return Inspection Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.08)] p-stack-lg w-full">
+<h3 class="font-headline-lg text-[24px] font-semibold text-primary mb-stack-lg flex items-center gap-2 border-b border-surface-container-high pb-4">
+<span class="material-symbols-outlined text-[28px]">fact_check</span>
+            فحص الاسترجاع
+          </h3>
+<div class="flex flex-col gap-stack-lg">
+<!-- Condition Selector -->
+<div>
+<label class="block font-label-caps text-[14px] text-on-surface-variant mb-stack-md font-bold">حالة الأصل عند الإرجاع</label>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<label class="flex flex-col items-center justify-center gap-2 cursor-pointer p-4 border-2 border-outline-variant rounded-xl bg-surface hover:border-success transition-colors group">
+<input class="hidden peer" name="condition_large" type="radio" value="excellent">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant peer-checked:text-success group-hover:text-success">sentiment_very_satisfied</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface-variant peer-checked:text-success group-hover:text-success">ممتاز</span>
+<div class="w-full h-1 mt-2 rounded-full peer-checked:bg-success"></div>
+</label>
+<label class="flex flex-col items-center justify-center gap-2 cursor-pointer p-4 border-2 border-primary rounded-xl bg-primary-fixed-dim bg-opacity-10 transition-colors group">
+<input checked="" class="hidden peer" name="condition_large" type="radio" value="good">
+<span class="material-symbols-outlined text-[32px] text-primary">sentiment_satisfied</span>
+<span class="font-body-lg text-body-lg font-semibold text-primary">جيد</span>
+<div class="w-full h-1 mt-2 rounded-full bg-primary"></div>
+</label>
+<label class="flex flex-col items-center justify-center gap-2 cursor-pointer p-4 border-2 border-outline-variant rounded-xl bg-surface hover:border-warning transition-colors group">
+<input class="hidden peer" name="condition_large" type="radio" value="maintenance">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant peer-checked:text-warning group-hover:text-warning">build</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface-variant peer-checked:text-warning group-hover:text-warning">يحتاج صيانة</span>
+<div class="w-full h-1 mt-2 rounded-full peer-checked:bg-warning"></div>
+</label>
+<label class="flex flex-col items-center justify-center gap-2 cursor-pointer p-4 border-2 border-outline-variant rounded-xl bg-surface hover:border-error transition-colors group">
+<input class="hidden peer" name="condition_large" type="radio" value="damaged">
+<span class="material-symbols-outlined text-[32px] text-on-surface-variant peer-checked:text-error group-hover:text-error">broken_image</span>
+<span class="font-body-lg text-body-lg font-semibold text-on-surface-variant peer-checked:text-error group-hover:text-error">تالف</span>
+<div class="w-full h-1 mt-2 rounded-full peer-checked:bg-error"></div>
+</label>
+</div>
+</div>
+<!-- Detailed Checklist -->
+<div class="mt-4 pt-4 border-t border-surface-container-high">
+<label class="block font-label-caps text-[14px] text-on-surface-variant mb-stack-md font-bold">قائمة التحقق للمرفقات</label>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5 border-outline-variant" type="checkbox">
+<span class="font-body-lg text-body-lg">الجهاز</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<input checked="" class="rounded text-primary focus:ring-primary w-5 h-5 border-outline-variant" type="checkbox">
+<span class="font-body-lg text-body-lg">الشاحن</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<input class="rounded text-primary focus:ring-primary w-5 h-5 border-outline-variant" type="checkbox">
+<span class="font-body-lg text-body-lg">الحقيبة</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer p-3 rounded-lg border border-outline-variant bg-surface-container-lowest hover:bg-surface-container-low transition-colors">
+<input class="rounded text-primary focus:ring-primary w-5 h-5 border-outline-variant" type="checkbox">
+<span class="font-body-lg text-body-lg">الملحقات</span>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Notes and Images Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter w-full">
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.08)] p-stack-lg">
+<h3 class="font-title-md text-[20px] font-semibold text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined">edit_note</span>
+            ملاحظات الاسترجاع
+          </h3>
+<textarea class="w-full h-40 bg-surface-container-low border border-outline-variant text-on-surface rounded-xl p-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none font-body-sm" placeholder="أدخل أي ملاحظات حول حالة الجهاز، الأضرار إن وجدت، أو أي تفاصيل أخرى..."></textarea>
+</section>
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.08)] p-stack-lg">
+<h3 class="font-title-md text-[20px] font-semibold text-primary mb-stack-md flex items-center gap-2">
+<span class="material-symbols-outlined">add_a_photo</span>
+            صور الأصل عند الإرجاع
+          </h3>
+<div class="border-2 border-dashed border-primary border-opacity-50 rounded-xl h-40 flex flex-col items-center justify-center bg-primary-fixed-dim bg-opacity-5 text-primary hover:bg-opacity-10 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined mb-3 text-[48px] group-hover:scale-110 transition-transform">cloud_upload</span>
+<span class="font-body-lg text-body-lg font-semibold">اسحب وأفلت الصور هنا أو انقر للرفع</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">PNG, JPG حتى 5MB</span>
+</div>
+</section>
+</div>
+<!-- 4. Signatures Section -->
+
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0px_2px_8px_rgba(0,0,0,0.08)] p-stack-lg w-full mb-10">
+  <h3 class="font-title-md text-[20px] font-semibold text-primary mb-stack-lg flex items-center gap-2 border-b border-surface-container-high pb-4">
+    <span class="material-symbols-outlined text-[24px]">verified_user</span>
+    اعتماد الاسترجاع
+  </h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="flex flex-col gap-2">
+      <label class="font-label-caps text-[14px] text-on-surface-variant font-bold">مسؤول الاستلام</label>
+      <select class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg p-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+        <option value="">اختر المسؤول...</option>
+        <option value="1">سارة أحمد</option>
+        <option value="2">خالد منصور</option>
+      </select>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="font-label-caps text-[14px] text-on-surface-variant font-bold">تاريخ الاستلام</label>
+      <input type="datetime-local" class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg p-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="font-label-caps text-[14px] text-on-surface-variant font-bold">حالة العملية</label>
+      <select class="w-full bg-surface-container-low border border-outline-variant text-on-surface rounded-lg p-2 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors">
+        <option value="completed">مكتملة</option>
+        <option value="review">تحتاج مراجعة</option>
+      </select>
+    </div>
+    <div class="flex flex-col gap-2 md:col-span-2 lg:col-span-3">
+      <label class="font-label-caps text-[14px] text-on-surface-variant font-bold">ملاحظات المسؤول</label>
+      <textarea class="w-full h-32 bg-surface-container-low border border-outline-variant text-on-surface rounded-xl p-4 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors resize-none font-body-sm" placeholder="أدخل أي ملاحظات إضافية هنا..."></textarea>
+    </div>
+  </div>
+</section></div>
+</main>
+</div>
+
+
+</body></html>

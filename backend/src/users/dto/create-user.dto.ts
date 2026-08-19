@@ -1,0 +1,2 @@
+import { IsArray, IsEmail, IsOptional, IsString, IsUUID, MinLength } from 'class-validator';
+export class CreateUserDto { @IsString() @MinLength(2) fullName!: string; @IsEmail() email!: string; @IsString() phone!: string; @IsString() @MinLength(8) password!: string; @IsOptional() @IsUUID() departmentId?: string; @IsArray() @IsUUID('4', { each: true }) roleIds!: string[]; @IsString() @MinLength(2) jobTitle!: string; }

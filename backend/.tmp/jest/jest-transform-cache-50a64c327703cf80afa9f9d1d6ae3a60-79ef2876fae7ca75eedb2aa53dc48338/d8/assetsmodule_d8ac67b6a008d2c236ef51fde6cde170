@@ -1,0 +1,20 @@
+3a406c0b85f44ab41b2afe0a1f001917
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AssetsModule = void 0;
+const common_1 = require("@nestjs/common");
+const assets_controller_1 = require("./assets.controller");
+const assets_service_1 = require("./assets.service");
+let AssetsModule = class AssetsModule {
+};
+exports.AssetsModule = AssetsModule;
+exports.AssetsModule = AssetsModule = __decorate([
+    (0, common_1.Module)({ controllers: [assets_controller_1.AssetsController], providers: [assets_service_1.AssetsService], exports: [assets_service_1.AssetsService] })
+], AssetsModule);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcYXNzZXRzLm1vZHVsZS50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQSwyQ0FBd0M7QUFDeEMsMkRBQXVEO0FBQ3ZELHFEQUFpRDtBQUUxQyxJQUFNLFlBQVksR0FBbEIsTUFBTSxZQUFZO0NBQUcsQ0FBQTtBQUFmLG9DQUFZO3VCQUFaLFlBQVk7SUFEeEIsSUFBQSxlQUFNLEVBQUMsRUFBRSxXQUFXLEVBQUUsQ0FBQyxvQ0FBZ0IsQ0FBQyxFQUFFLFNBQVMsRUFBRSxDQUFDLDhCQUFhLENBQUMsRUFBRSxPQUFPLEVBQUUsQ0FBQyw4QkFBYSxDQUFDLEVBQUUsQ0FBQztHQUNyRixZQUFZLENBQUciLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcYXNzZXRzLm1vZHVsZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBNb2R1bGUgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5pbXBvcnQgeyBBc3NldHNDb250cm9sbGVyIH0gZnJvbSAnLi9hc3NldHMuY29udHJvbGxlcic7XG5pbXBvcnQgeyBBc3NldHNTZXJ2aWNlIH0gZnJvbSAnLi9hc3NldHMuc2VydmljZSc7XG5ATW9kdWxlKHsgY29udHJvbGxlcnM6IFtBc3NldHNDb250cm9sbGVyXSwgcHJvdmlkZXJzOiBbQXNzZXRzU2VydmljZV0sIGV4cG9ydHM6IFtBc3NldHNTZXJ2aWNlXSB9KVxuZXhwb3J0IGNsYXNzIEFzc2V0c01vZHVsZSB7fVxuIl0sInZlcnNpb24iOjN9

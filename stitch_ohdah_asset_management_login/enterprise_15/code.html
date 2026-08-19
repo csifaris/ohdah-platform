@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ohdah Enterprise - الإعدادات</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#006c49",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-variant": "#e0e3e5",
+                        "tertiary": "#1b2b3f",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-surface": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#00164e",
+                        "primary-container": "#1e3a8a",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "primary": "#00236f",
+                        "outline-variant": "#c5c5d3",
+                        "on-surface-variant": "#444651",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-tertiary-container": "#9dadc6",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#757682",
+                        "surface-tint": "#4059aa",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#6cf8bb",
+                        "tertiary-container": "#314156",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-secondary-container": "#00714d",
+                        "on-primary-container": "#90a8ff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed": "#002113",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#4edea3",
+                        "inverse-primary": "#b6c4ff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-highest": "#e0e3e5",
+                        "secondary-fixed": "#6ffbbe",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed": "#d3e4fe",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-container-high": "#e6e8ea",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#dce1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "stack-sm": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "stack-md": "12px",
+                        "stack-lg": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill-icon { font-variation-settings: 'FILL' 1; }
+        
+        .ambient-shadow { box-shadow: 0px 1px 3px rgba(0,0,0,0.05); }
+        .hover-ambient-shadow:hover { box-shadow: 0px 10px 15px -3px rgba(30, 58, 138, 0.08); transform: translateY(-1px); transition: all 0.2s ease; }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background-color: #c5c5d3; border-radius: 20px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="h-16 fixed top-0 left-0 right-0 md:right-64 z-40 border-b border-outline-variant bg-surface/80 backdrop-blur-md flex justify-between items-center px-margin-desktop w-full rtl md:w-[calc(100%-16rem)]">
+<div class="flex items-center gap-base">
+<!-- Mobile Menu Toggle (hidden on md) -->
+<button class="md:hidden text-on-surface-variant p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-black text-primary truncate hidden md:block">الإعدادات</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-highest">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant ml-2">
+<img alt="صورة المستخدم الشخصية" class="w-full h-full object-cover" data-alt="A professional corporate headshot of a business executive in a well-lit modern office environment. The lighting is soft and bright, emphasizing a high-end corporate minimalist aesthetic. The image is cropped tightly on the face and shoulders, suitable for a small avatar circle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2hdJFgrEbwZ_HY6e66u2aCD5xEEiKWO-RPAJunC-dNlsQJ_CyjHQ3K-hNzq3fAXlvc8iSyuYITOV5Ogh7fFMZ_Vq90PYuU3ShY9uf1ViE-ABRXHULttoTLap31VBVuHwPtcEniQZkog_qu6q9114FTHawTsRa6BNzH85qKJP0b1ulBLZU58bosBMm0MT_uCwnWCvWTFTFMT3W2NhWIkpTn9XI8wZ_kpxZ5qNz7R8yV-ik7JU0LFol"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<aside class="h-screen w-64 fixed right-0 top-0 border-l border-outline-variant bg-surface-container-lowest shadow-sm flex flex-col h-full rtl hidden md:flex z-50">
+<div class="p-6 border-b border-outline-variant flex flex-col gap-2">
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary">عهدة</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">إدارة أصول المؤسسة</p>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 flex flex-col gap-1 px-2">
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+<span class="font-body-lg text-body-lg">لوحة القيادة</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">inventory_2</span>
+<span class="font-body-lg text-body-lg">الأصول</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">badge</span>
+<span class="font-body-lg text-body-lg">الموظفون</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">build</span>
+<span class="font-body-lg text-body-lg">الصيانة</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">assessment</span>
+<span class="font-body-lg text-body-lg">التقارير</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">notifications</span>
+<span class="font-body-lg text-body-lg">التنبيهات</span>
+</a>
+<a class="flex items-center gap-base px-4 py-3 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group_add</span>
+<span class="font-body-lg text-body-lg">المستخدمين والأدوار</span>
+</a>
+<!-- Active Item -->
+<a class="flex items-center gap-base px-4 py-3 text-primary font-bold border-r-4 border-primary bg-primary-container/10 rounded-l-lg scale-95 duration-100 ease-in-out mt-1" href="#">
+<span class="material-symbols-outlined fill-icon">settings</span>
+<span class="font-body-lg text-body-lg">الإعدادات</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="md:pr-64 pt-16 min-h-screen pb-24">
+<!-- Page Header -->
+<div class="px-margin-desktop py-stack-lg border-b border-outline-variant bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface mb-2">الإعدادات</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">إدارة إعدادات النظام والشركة</p>
+</div>
+</div>
+<div class="px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Inner Navigation Menu -->
+<nav class="w-full lg:w-64 flex-shrink-0 flex flex-col gap-1">
+<!-- Active Section -->
+<button class="w-full text-right px-4 py-3 rounded-lg bg-surface-container-high text-primary font-title-md text-title-md transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">domain</span>
+                        إعدادات الشركة
+                    </button>
+<button class="w-full text-right px-4 py-3 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-body-lg text-body-lg flex items-center gap-3">
+<span class="material-symbols-outlined">location_on</span>
+                        الفروع والمواقع
+                    </button>
+<button class="w-full text-right px-4 py-3 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-body-lg text-body-lg flex items-center gap-3">
+<span class="material-symbols-outlined">assignment</span>
+                        إعدادات العهد
+                    </button>
+<button class="w-full text-right px-4 py-3 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-body-lg text-body-lg flex items-center gap-3">
+<span class="material-symbols-outlined">notifications_active</span>
+                        الإشعارات
+                    </button>
+<button class="w-full text-right px-4 py-3 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-body-lg text-body-lg flex items-center gap-3">
+<span class="material-symbols-outlined">tune</span>
+                        التخصيص
+                    </button>
+<button class="w-full text-right px-4 py-3 rounded-lg hover:bg-surface-container transition-colors text-on-surface-variant font-body-lg text-body-lg flex items-center gap-3">
+<span class="material-symbols-outlined">person</span>
+                        الملف الشخصي
+                    </button>
+</nav>
+<!-- Active Content Area: Company Settings -->
+<div class="flex-1 flex flex-col gap-stack-lg">
+<div class="bg-surface-container-lowest rounded-xl ambient-shadow border border-surface-variant p-6 hover-ambient-shadow">
+<h2 class="font-title-md text-title-md text-on-surface mb-6 border-b border-outline-variant pb-4">بيانات الشركة</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-stack-md">
+<!-- Logo Upload (Spans full width) -->
+<div class="col-span-1 md:col-span-2 mb-4 flex items-center gap-6">
+<div class="h-24 w-24 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-outline text-4xl">image</span>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-caps text-label-caps text-on-surface-variant">شعار الشركة</span>
+<button class="px-4 py-2 bg-surface-container-low border border-outline-variant text-on-surface rounded-lg font-body-sm text-body-sm hover:bg-surface-container transition-colors max-w-max" type="button">
+                                        تغيير الشعار
+                                    </button>
+<p class="font-body-sm text-body-sm text-outline text-xs">صيغ PNG, JPG بحد أقصى 2MB</p>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="company_name">اسم الشركة</label>
+<input class="w-full rounded-lg border border-outline-variant bg-surface-bright px-3 py-2 text-on-surface font-body-lg text-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="company_name" type="text" value="شركة التقنية المتقدمة"/>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="tax_number">الرقم الضريبي</label>
+<input class="w-full rounded-lg border border-outline-variant bg-surface-bright px-3 py-2 text-on-surface font-body-lg text-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="tax_number" type="text" value="300123456789012"/>
+</div>
+<div class="flex flex-col gap-stack-sm col-span-1 md:col-span-2">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="address">العنوان الوطني</label>
+<input class="w-full rounded-lg border border-outline-variant bg-surface-bright px-3 py-2 text-on-surface font-body-lg text-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="address" type="text" value="الرياض، طريق الملك فهد، مبنى 45"/>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="contact_number">رقم التواصل</label>
+<input class="w-full rounded-lg border border-outline-variant bg-surface-bright px-3 py-2 text-on-surface font-body-lg text-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none text-left" dir="ltr" id="contact_number" type="tel" value="0112345678"/>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="email">البريد الإلكتروني للإدارة</label>
+<input class="w-full rounded-lg border border-outline-variant bg-surface-bright px-3 py-2 text-on-surface font-body-lg text-body-lg focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none text-left" dir="ltr" id="email" type="email" value="admin@techcorp.sa"/>
+</div>
+<!-- Submit Button -->
+<div class="col-span-1 md:col-span-2 flex justify-end mt-4 pt-4 border-t border-outline-variant">
+<button class="bg-primary text-on-primary font-title-md text-title-md px-6 py-2 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm" type="submit">
+                                    حفظ التغييرات
+                                </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="mt-stack-lg border-t border-outline-variant pt-4 flex justify-between items-center text-outline font-body-sm text-body-sm">
+<span>Ohdah v1.0</span>
+<span>آخر تحديث: 19/08/2026</span>
+</div>
+</div>
+</main>
+</body></html>

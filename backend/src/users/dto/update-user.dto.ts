@@ -1,0 +1,2 @@
+import { IsArray, IsEmail, IsOptional, IsString, IsUUID, MinLength } from 'class-validator';
+export class UpdateUserDto { @IsOptional() @IsString() @MinLength(2) fullName?: string; @IsOptional() @IsEmail() email?: string; @IsOptional() @IsString() phone?: string; @IsOptional() @IsUUID() departmentId?: string; @IsOptional() @IsArray() @IsUUID('4', { each: true }) roleIds?: string[]; @IsOptional() @IsString() @MinLength(2) jobTitle?: string; }

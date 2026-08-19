@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تفاصيل العهدة - Ohdah</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#eff1f3",
+                        "outline": "#757682",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#1b2b3f",
+                        "surface-variant": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#00714d",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#1e3a8a",
+                        "background": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#264191",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-container": "#6cf8bb",
+                        "primary-fixed": "#dce1ff",
+                        "primary": "#00236f",
+                        "on-tertiary-container": "#9dadc6",
+                        "surface-tint": "#4059aa",
+                        "tertiary-fixed": "#d3e4fe",
+                        "secondary": "#006c49",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "outline-variant": "#c5c5d3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#444651",
+                        "on-background": "#191c1e",
+                        "surface": "#f7f9fb",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00164e",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "surface-container-low": "#f2f4f6",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-secondary-fixed": "#002113",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef0",
+                        "tertiary-container": "#314156",
+                        "on-primary-container": "#90a8ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "margin-desktop": "32px",
+                        "stack-md": "12px",
+                        "stack-lg": "24px",
+                        "stack-sm": "4px"
+                    },
+                    "fontFamily": {
+                        "title-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .ambient-shadow { box-shadow: 0px 1px 3px rgba(0,0,0,0.05); }
+        .ambient-shadow-hover:hover { box-shadow: 0px 10px 15px -3px rgba(30, 58, 138, 0.08); }
+    </style>
+</head>
+<body class="bg-background text-on-surface h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<aside class="fixed top-0 right-0 h-screen w-64 border-l border-outline-variant bg-surface dark:bg-inverse-surface shadow-sm hidden md:flex flex-col z-20">
+<div class="p-6 border-b border-outline-variant flex flex-col items-center gap-2">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center text-on-primary-container font-display-lg text-display-lg font-bold">
+                O
+            </div>
+<h1 class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed-dim text-center">Ohdah</h1>
+<p class="font-title-md text-title-md text-on-surface-variant">إدارة الأصول</p>
+</div>
+<div class="flex flex-col h-full p-4 gap-2 overflow-y-auto">
+<button class="w-full bg-primary text-on-primary rounded-xl py-3 px-4 font-semibold hover:bg-primary-container transition-colors mb-4 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                إضافة أصل جديد
+            </button>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-xl transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-title-md text-title-md">لوحة القيادة</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl font-semibold transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-title-md text-title-md">العهد</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-xl transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">precision_manufacturing</span>
+<span class="font-title-md text-title-md">الأصول</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-xl transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">badge</span>
+<span class="font-title-md text-title-md">الموظفين</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-tertiary-container rounded-xl transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-title-md text-title-md">الإعدادات</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container rounded-xl transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-title-md text-title-md">تسجيل الخروج</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 mr-0 md:mr-64 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="h-16 border-b border-outline-variant bg-surface-container-lowest dark:bg-surface-container shadow-sm flex items-center justify-between px-8 w-full z-10 shrink-0">
+<div class="flex items-center gap-6">
+<div class="font-title-md text-title-md font-bold text-primary dark:text-primary-fixed-dim hidden md:block">عُهدة</div>
+<nav class="hidden md:flex items-center gap-6 h-full">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high rounded-lg px-3 py-2 flex items-center h-full font-title-md text-title-md" href="#">الرئيسية</a>
+<a class="text-primary border-b-2 border-primary font-bold pb-1 hover:bg-surface-container-high rounded-t-lg px-3 flex items-center h-full font-title-md text-title-md" href="#">التقارير</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="bg-surface-container-low border border-outline-variant rounded-lg pl-4 pr-10 py-2 text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors w-64" placeholder="بحث..." type="text"/>
+</div>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-full transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="A professional headshot of an Arab man in modern corporate attire, softly lit against a neutral grey background, high resolution, enterprise environment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0TiDo3sVmizR4tXkhZcz9MyQgwe8bGnnXCA_yM3e_xMGKVFYj_wueZxfCcgeK43FCT7g0xPoidxjox7fygGsF0J--kcZkQsXo_58yB4ZsDrVDBGVD7LQ84y7Kg6Dy1Uw6UKLDgkBH2bPMax7zpEyNVE-KIE-wlnlak0d9-7fsAhmU6PjlPPWIOPryP2IVTFMdGXWWcv5Sw0PibhoZtrMKBf0dnECfn-cPV8qnIHl8UEyO4WzFX43q"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="flex-1 overflow-y-auto p-gutter bg-surface">
+<div class="max-w-container-max mx-auto space-y-stack-lg">
+<!-- Page Header & Actions -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-1">تفاصيل العهدة</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">عرض جميع بيانات العهدة وسجل العمليات</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-4 py-2 rounded-lg font-title-md text-title-md hover:bg-surface-container-low transition-colors flex items-center gap-2 ambient-shadow">
+<span class="material-symbols-outlined text-[20px]">print</span>
+                            طباعة المحضر
+                        </button>
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface px-4 py-2 rounded-lg font-title-md text-title-md hover:bg-surface-container-low transition-colors flex items-center gap-2 ambient-shadow">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+                            نقل العهدة
+                        </button>
+<button class="bg-surface-container-lowest border border-error text-error px-4 py-2 rounded-lg font-title-md text-title-md hover:bg-error-container hover:text-on-error-container transition-colors flex items-center gap-2 ambient-shadow">
+<span class="material-symbols-outlined text-[20px]">undo</span>
+                            استرجاع العهدة
+                        </button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-title-md text-title-md hover:bg-surface-tint transition-colors ambient-shadow flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+                            تعديل
+                        </button>
+<div class="relative">
+<button class="bg-surface-container-lowest border border-outline-variant text-on-surface p-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center justify-center ambient-shadow">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tabs Navigation -->
+<div class="border-b border-outline-variant">
+<nav aria-label="Tabs" class="-mb-px flex gap-6">
+<a aria-current="page" class="border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-title-md text-title-md" href="#">
+            التفاصيل
+        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-title-md text-title-md" href="#">
+            سجل الحركة
+        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-title-md text-title-md" href="#">
+            الصيانة
+        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-title-md text-title-md" href="#">
+            المرفقات
+        </a>
+<a class="border-transparent text-on-surface-variant hover:text-on-surface hover:border-outline-variant whitespace-nowrap py-4 px-1 border-b-2 font-title-md text-title-md" href="#">
+            التوقيعات
+        </a>
+</nav>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter mt-6">
+<!-- Left Column (Overview & Asset Info) - Takes up 2 columns on XL -->
+<div class="xl:col-span-2 flex flex-col gap-gutter">
+<!-- Hero Card: Custody Overview -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 ambient-shadow flex flex-col sm:flex-row gap-8 items-start">
+<div class="w-full sm:w-1/3 aspect-video sm:aspect-square rounded-lg overflow-hidden border border-surface-variant bg-surface-container-low shrink-0 relative">
+<img class="w-full h-full object-cover" data-alt="A high-quality product shot of a sleek silver MacBook Pro M2 resting on a clean, modern white desk in a corporate minimalist setting, soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHF6I5oXs7qmoxSCdAs3MjUgpeSUg463zPVA9llWOobqElX5--mBh3W_IWSAs0ZEReqBG3U2DxAmz1TDgnLLxfQNwSExZXwRdef4IIZwo_FF7mOmWkcDGI8B9fDfPZ6ZuCpIgSF8dd2vRXFyP-HrGjra3C3E1ExuH5Jcprq5AqXkDMvOTfGEMyy0sig5KdxDhFHFVIH_FQ3n9yckcjH3dBjmgoDEKz62LycMZWHdzu7zODTo3_AC6h"/>
+</div>
+<div class="flex-1 flex flex-col justify-between w-full">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="font-label-caps text-label-caps text-primary bg-primary-fixed px-3 py-1.5 rounded-md border border-primary-fixed-dim">OH-000126</span>
+<span class="font-title-md text-title-md text-on-secondary-container bg-secondary-container px-3 py-1 rounded-full flex items-center gap-2 border border-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                                نشطة
+                                            </span>
+</div>
+<h3 class="font-display-lg text-display-lg text-on-surface mb-2">MacBook Pro M2</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">category</span> أجهزة حاسب آلي | <span class="material-symbols-outlined text-[20px]">qr_code</span> C02G8765Q05N
+</p>
+</div>
+<div class="w-20 h-20 border border-outline-variant rounded-xl p-2 bg-surface flex flex-col items-center justify-center shrink-0">
+<img class="w-12 h-12 object-contain mb-1" data-alt="A clean, crisp black and white QR code designed for scanning in an enterprise asset management application, high contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEY1R8XLntlkcMccE9MM0m923pp6KsDliU7oD3u10VbVb1UNl9F3FoT5S3NWSso7I7OIu-K9YIEV8Nejm8QLkeGeTJEEe9oTTalifiIa1FI_YRzFZFmGzfa_P48sN2mD_h0ksaZgjcyV1la7XoA6Btr2HMqpnns_hit2rigSU4hzeM3tyi50CgX-x1oQMSTKTRXj-9k_ek5d03rA2zbd21GXlwyP_jAYtUfhOyamjobEMHQl6P0H08"/>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-surface-container-low p-5 rounded-xl border border-surface-container-highest">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">الموظف الحالي</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover" data-alt="A professional headshot of an Arab man in modern corporate attire, softly lit against a neutral grey background, high resolution, enterprise environment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurLAaJ3HxUlMu2tUKT-1xWyyAF6lSnm9KXa4arfvikf1q4TkgKN4fRkHyqxvI66bJmbwbIwLnIJFFmn7Cp6IWOgVed2K98YyZwWa2uYCUafvVLw5SXY_geg-QazNXiKwjTQT2r63kz_OWwCLRe1K3EF7Xtna33WSMrIsUzS3dr07xXDFlJI0jHteEjKtEWyDaK540Z4fTjCDLBwm3vOTmH4EpGOzDWHE2i8JbclYuaN9xztwPTNlb"/>
+                                            أحمد محمد
+                                        </p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">القسم</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">domain</span>
+                                            تقنية المعلومات
+                                        </p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">تاريخ التسليم</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">calendar_today</span>
+                                            19/08/2026
+                                        </p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">الموقع</p>
+<p class="font-body-lg text-body-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">location_on</span>
+                                            المبنى الرئيسي
+                                        </p>
+</div>
+</div>
+</div>
+</div>
+<!-- New Section: Current Asset Condition & Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow">
+<h4 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2 pb-3 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary">fact_check</span>
+            حالة الأصل الحالية
+        </h4>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">حالة الفحص</span>
+<span class="font-body-sm text-body-sm font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                    ممتازة
+                </span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">تاريخ آخر فحص</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">20/08/2026</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">اسم الفاحص</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">خالد عبدلله</span>
+</div>
+<div class="py-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant block mb-1">ملاحظات الفحص</span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface bg-surface-container p-3 rounded-lg">الجهاز يعمل بشكل سليم، البطارية بحالة جيدة جداً (دورة الشحن: 45).</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow">
+<h4 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2 pb-3 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary">speaker_notes</span>
+            ملاحظات العهدة الإدارية
+        </h4>
+<div class="h-full bg-surface-container-low p-4 rounded-lg border border-surface-container-highest flex flex-col justify-between">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                تم التسليم مع الشاحن الأصلي بقوة 67W وكابل MagSafe 3. بالإضافة إلى حقيبة واقية من نوع Incase.
+                يجب إرجاع جميع الملحقات مع الجهاز عند انتهاء العهدة.
+                تم تفعيل التأمين الشامل على الجهاز.
+            </p>
+<div class="mt-4 flex justify-end">
+<button class="text-primary hover:text-surface-tint text-body-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                    تعديل الملاحظات
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid for smaller cards (Moved down) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Asset Information -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow flex flex-col h-full">
+<h4 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2 pb-3 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary">devices</span>
+                                    البيانات التقنية
+                                </h4>
+<div class="space-y-3 flex-1">
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">رقم الأصل</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">AST-2026-0045</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">التصنيف</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">أجهزة حاسب آلي</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الشركة المصنعة</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Apple</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الموديل</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">MacBook Pro 14"</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الرقم التسلسلي</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface font-mono">C02G8765Q05N</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الضمان</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">gpp_good</span>
+                                            ساري حتى 15/08/2029
+                                        </span>
+</div>
+</div>
+</div>
+<!-- Employee Information -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow flex flex-col h-full">
+<h4 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2 pb-3 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary">badge</span>
+                                    بيانات الموظف
+                                </h4>
+<div class="flex items-center gap-4 mb-6">
+<img class="w-16 h-16 rounded-full border-2 border-surface-container-highest object-cover" data-alt="A professional headshot of an Arab man in modern corporate attire, softly lit against a neutral grey background, high resolution, enterprise environment aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBurLAaJ3HxUlMu2tUKT-1xWyyAF6lSnm9KXa4arfvikf1q4TkgKN4fRkHyqxvI66bJmbwbIwLnIJFFmn7Cp6IWOgVed2K98YyZwWa2uYCUafvVLw5SXY_geg-QazNXiKwjTQT2r63kz_OWwCLRe1K3EF7Xtna33WSMrIsUzS3dr07xXDFlJI0jHteEjKtEWyDaK540Z4fTjCDLBwm3vOTmH4EpGOzDWHE2i8JbclYuaN9xztwPTNlb"/>
+<div>
+<h5 class="font-title-md text-title-md text-on-surface mb-1">أحمد محمد</h5>
+<span class="font-label-caps text-label-caps text-on-surface-variant bg-surface-container-high px-2 py-1 rounded-md">EMP-8921</span>
+</div>
+</div>
+<div class="space-y-3 flex-1">
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">القسم</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">تقنية المعلومات</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">المسمى الوظيفي</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">مطور برمجيات أول</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-container-high">
+<span class="font-body-sm text-body-sm text-on-surface-variant">رقم التواصل</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface" dir="ltr">+966 50 123 4567</span>
+</div>
+<div class="mt-4 bg-primary-fixed border border-primary-fixed-dim rounded-lg p-3 flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-primary-fixed-variant font-semibold">إجمالي العهد الحالية</span>
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-body-lg">5</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Timeline & Notes) -->
+<div class="flex flex-col gap-gutter">
+<!-- Custody Timeline -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow flex-1">
+<div class="flex justify-between items-center mb-6 pb-3 border-b border-surface-variant">
+<h4 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                    سجل العمليات
+                                </h4>
+<button class="text-primary hover:text-surface-tint text-body-sm font-semibold transition-colors">سجل الحركة الكامل</button>
+</div>
+<div class="relative border-r-2 border-surface-container-highest pr-6 space-y-6">
+<!-- Event 1 -->
+<div class="relative">
+<div class="absolute -right-[31px] top-1 w-4 h-4 rounded-full border-2 border-surface-container-lowest bg-primary z-10"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">edit_document</span> 20/08/2026 - 10:30 ص</p>
+<h5 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">تحديث ملاحظات الفحص</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+                                        بواسطة: خالد عبدلله (مدير الأصول)
+                                    </p>
+</div>
+<!-- Event 2 -->
+<div class="relative">
+<div class="absolute -right-[31px] top-1 w-4 h-4 rounded-full border-2 border-surface-container-lowest bg-secondary z-10"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">assignment_ind</span> 19/08/2026 - 02:15 م</p>
+<h5 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">تم تسليم العهدة</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+                                        إلى: أحمد محمد (تقنية المعلومات)
+                                    </p>
+</div>
+<!-- Event 3 -->
+<div class="relative">
+<div class="absolute -right-[31px] top-1 w-4 h-4 rounded-full border-2 border-surface-container-lowest bg-tertiary z-10"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">verified</span> 19/08/2026 - 11:45 ص</p>
+<h5 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">موافقة القسم</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+                                        بواسطة: مدير تقنية المعلومات
+                                    </p>
+</div>
+<!-- Event 4 -->
+<div class="relative">
+<div class="absolute -right-[31px] top-1 w-4 h-4 rounded-full border-2 border-surface-container-lowest bg-outline-variant z-10"></div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1 flex items-center gap-2"><span class="material-symbols-outlined text-[14px]">add_circle</span> 19/08/2026 - 09:00 ص</p>
+<h5 class="font-body-lg text-body-lg font-semibold text-on-surface mb-1">إنشاء سجل العهدة (مبدئي)</h5>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">account_circle</span>
+                                        بواسطة: النظام
+                                    </p>
+</div>
+</div>
+</div>
+<!-- Attachments -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 ambient-shadow">
+<h4 class="font-title-md text-title-md text-on-surface mb-4 flex items-center gap-2 pb-3 border-b border-surface-variant">
+<span class="material-symbols-outlined text-primary">attach_file</span>
+                                المرفقات (2)
+                            </h4>
+<ul class="space-y-2">
+<li class="flex items-center justify-between p-3 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error">picture_as_pdf</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">محضر_تسليم_موقع.pdf</span>
+<span class="text-[10px] text-on-surface-variant">19/08/2026 • 2.4 MB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</li>
+<li class="flex items-center justify-between p-3 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container">image</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-medium text-on-surface">صور_حالة_الجهاز.zip</span>
+<span class="text-[10px] text-on-surface-variant">19/08/2026 • 15.1 MB</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">download</span>
+</li>
+</ul>
+<button class="w-full mt-4 border border-dashed border-outline text-on-surface-variant py-2 rounded-lg hover:bg-surface-container-low hover:text-primary transition-colors flex items-center justify-center gap-2 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                                إضافة مرفق جديد
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom padding for spacing -->
+<div class="h-8"></div>
+</div>
+</main>
+</body></html>

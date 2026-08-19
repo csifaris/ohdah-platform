@@ -1,0 +1,104 @@
+064b00d3e57228787a19b65c670bb085
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAssetDto = void 0;
+const class_transformer_1 = require("class-transformer");
+const class_validator_1 = require("class-validator");
+const client_1 = require("@prisma/client");
+class CreateAssetDto {
+    organizationId;
+    categoryId;
+    assetNumber;
+    name;
+    description;
+    serialNumber;
+    status;
+    condition;
+    purchaseDate;
+    purchaseCost;
+    currentValue;
+    currency;
+    location;
+    warrantyEnd;
+}
+exports.CreateAssetDto = CreateAssetDto;
+__decorate([
+    (0, class_validator_1.IsUUID)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "organizationId", void 0);
+__decorate([
+    (0, class_validator_1.IsUUID)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "categoryId", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "assetNumber", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "name", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "description", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "serialNumber", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsEnum)(client_1.AssetStatus),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "status", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "condition", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDateString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "purchaseDate", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.Min)(0),
+    __metadata("design:type", Number)
+], CreateAssetDto.prototype, "purchaseCost", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_transformer_1.Type)(() => Number),
+    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.Min)(0),
+    __metadata("design:type", Number)
+], CreateAssetDto.prototype, "currentValue", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "currency", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "location", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsDateString)(),
+    __metadata("design:type", String)
+], CreateAssetDto.prototype, "warrantyEnd", void 0);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcZHRvXFxjcmVhdGUtYXNzZXQuZHRvLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLHlEQUF5QztBQUN6QyxxREFBb0c7QUFDcEcsMkNBQTZDO0FBRTdDLE1BQWEsY0FBYztJQUNmLGNBQWMsQ0FBVTtJQUN4QixVQUFVLENBQVU7SUFDbEIsV0FBVyxDQUFVO0lBQ3JCLElBQUksQ0FBVTtJQUNBLFdBQVcsQ0FBVTtJQUNyQixZQUFZLENBQVU7SUFDYixNQUFNLENBQWU7SUFDOUIsU0FBUyxDQUFVO0lBQ2YsWUFBWSxDQUFVO0lBQ0UsWUFBWSxDQUFVO0lBQ3RCLFlBQVksQ0FBVTtJQUNsRCxRQUFRLENBQVU7SUFDbEIsUUFBUSxDQUFVO0lBQ2QsV0FBVyxDQUFVO0NBQ3BEO0FBZkQsd0NBZUM7QUFkVztJQUFULElBQUEsd0JBQU0sR0FBRTs7c0RBQXlCO0FBQ3hCO0lBQVQsSUFBQSx3QkFBTSxHQUFFOztrREFBcUI7QUFDbEI7SUFBWCxJQUFBLDBCQUFRLEdBQUU7O21EQUFzQjtBQUNyQjtJQUFYLElBQUEsMEJBQVEsR0FBRTs7NENBQWU7QUFDQTtJQUF6QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDBCQUFRLEdBQUU7O21EQUFzQjtBQUNyQjtJQUF6QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDBCQUFRLEdBQUU7O29EQUF1QjtBQUNiO0lBQWxDLElBQUEsNEJBQVUsR0FBRTtJQUFFLElBQUEsd0JBQU0sRUFBQyxvQkFBVyxDQUFDOzs4Q0FBc0I7QUFDOUI7SUFBekIsSUFBQSw0QkFBVSxHQUFFO0lBQUUsSUFBQSwwQkFBUSxHQUFFOztpREFBb0I7QUFDZjtJQUE3QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDhCQUFZLEdBQUU7O29EQUF1QjtBQUNFO0lBQXJELElBQUEsNEJBQVUsR0FBRTtJQUFFLElBQUEsd0JBQUksRUFBQyxHQUFHLEVBQUUsQ0FBQyxNQUFNLENBQUM7SUFBRSxJQUFBLDBCQUFRLEdBQUU7SUFBRSxJQUFBLHFCQUFHLEVBQUMsQ0FBQyxDQUFDOztvREFBdUI7QUFDdEI7SUFBckQsSUFBQSw0QkFBVSxHQUFFO0lBQUUsSUFBQSx3QkFBSSxFQUFDLEdBQUcsRUFBRSxDQUFDLE1BQU0sQ0FBQztJQUFFLElBQUEsMEJBQVEsR0FBRTtJQUFFLElBQUEscUJBQUcsRUFBQyxDQUFDLENBQUM7O29EQUF1QjtBQUNsRDtJQUF6QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDBCQUFRLEdBQUU7O2dEQUFtQjtBQUNsQjtJQUF6QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDBCQUFRLEdBQUU7O2dEQUFtQjtBQUNkO0lBQTdCLElBQUEsNEJBQVUsR0FBRTtJQUFFLElBQUEsOEJBQVksR0FBRTs7bURBQXNCIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFx4YW1wcFxcaHRkb2NzXFxvaGRhaFxcYmFja2VuZFxcc3JjXFxhc3NldHNcXGR0b1xcY3JlYXRlLWFzc2V0LmR0by50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBUeXBlIH0gZnJvbSAnY2xhc3MtdHJhbnNmb3JtZXInO1xuaW1wb3J0IHsgSXNEYXRlU3RyaW5nLCBJc0VudW0sIElzTnVtYmVyLCBJc09wdGlvbmFsLCBJc1N0cmluZywgSXNVVUlELCBNaW4gfSBmcm9tICdjbGFzcy12YWxpZGF0b3InO1xuaW1wb3J0IHsgQXNzZXRTdGF0dXMgfSBmcm9tICdAcHJpc21hL2NsaWVudCc7XG5cbmV4cG9ydCBjbGFzcyBDcmVhdGVBc3NldER0byB7XG4gIEBJc1VVSUQoKSBvcmdhbml6YXRpb25JZCE6IHN0cmluZztcbiAgQElzVVVJRCgpIGNhdGVnb3J5SWQhOiBzdHJpbmc7XG4gIEBJc1N0cmluZygpIGFzc2V0TnVtYmVyITogc3RyaW5nO1xuICBASXNTdHJpbmcoKSBuYW1lITogc3RyaW5nO1xuICBASXNPcHRpb25hbCgpIEBJc1N0cmluZygpIGRlc2NyaXB0aW9uPzogc3RyaW5nO1xuICBASXNPcHRpb25hbCgpIEBJc1N0cmluZygpIHNlcmlhbE51bWJlcj86IHN0cmluZztcbiAgQElzT3B0aW9uYWwoKSBASXNFbnVtKEFzc2V0U3RhdHVzKSBzdGF0dXM/OiBBc3NldFN0YXR1cztcbiAgQElzT3B0aW9uYWwoKSBASXNTdHJpbmcoKSBjb25kaXRpb24/OiBzdHJpbmc7XG4gIEBJc09wdGlvbmFsKCkgQElzRGF0ZVN0cmluZygpIHB1cmNoYXNlRGF0ZT86IHN0cmluZztcbiAgQElzT3B0aW9uYWwoKSBAVHlwZSgoKSA9PiBOdW1iZXIpIEBJc051bWJlcigpIEBNaW4oMCkgcHVyY2hhc2VDb3N0PzogbnVtYmVyO1xuICBASXNPcHRpb25hbCgpIEBUeXBlKCgpID0+IE51bWJlcikgQElzTnVtYmVyKCkgQE1pbigwKSBjdXJyZW50VmFsdWU/OiBudW1iZXI7XG4gIEBJc09wdGlvbmFsKCkgQElzU3RyaW5nKCkgY3VycmVuY3k/OiBzdHJpbmc7XG4gIEBJc09wdGlvbmFsKCkgQElzU3RyaW5nKCkgbG9jYXRpb24/OiBzdHJpbmc7XG4gIEBJc09wdGlvbmFsKCkgQElzRGF0ZVN0cmluZygpIHdhcnJhbnR5RW5kPzogc3RyaW5nO1xufVxuIl0sInZlcnNpb24iOjN9

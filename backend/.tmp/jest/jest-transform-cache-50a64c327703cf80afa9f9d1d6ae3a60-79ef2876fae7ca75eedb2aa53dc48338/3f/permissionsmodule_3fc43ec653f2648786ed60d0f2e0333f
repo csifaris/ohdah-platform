@@ -1,0 +1,20 @@
+74442b13a7ad640b67a5ea45a13c033f
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PermissionsModule = void 0;
+const common_1 = require("@nestjs/common");
+const permissions_controller_1 = require("./permissions.controller");
+const permissions_service_1 = require("./permissions.service");
+let PermissionsModule = class PermissionsModule {
+};
+exports.PermissionsModule = PermissionsModule;
+exports.PermissionsModule = PermissionsModule = __decorate([
+    (0, common_1.Module)({ controllers: [permissions_controller_1.PermissionsController], providers: [permissions_service_1.PermissionsService], exports: [permissions_service_1.PermissionsService] })
+], PermissionsModule);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXHBlcm1pc3Npb25zXFxwZXJtaXNzaW9ucy5tb2R1bGUudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUEsMkNBQXdDO0FBQ3hDLHFFQUFpRTtBQUNqRSwrREFBMkQ7QUFHcEQsSUFBTSxpQkFBaUIsR0FBdkIsTUFBTSxpQkFBaUI7Q0FBRyxDQUFBO0FBQXBCLDhDQUFpQjs0QkFBakIsaUJBQWlCO0lBRDdCLElBQUEsZUFBTSxFQUFDLEVBQUUsV0FBVyxFQUFFLENBQUMsOENBQXFCLENBQUMsRUFBRSxTQUFTLEVBQUUsQ0FBQyx3Q0FBa0IsQ0FBQyxFQUFFLE9BQU8sRUFBRSxDQUFDLHdDQUFrQixDQUFDLEVBQUUsQ0FBQztHQUNwRyxpQkFBaUIsQ0FBRyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxceGFtcHBcXGh0ZG9jc1xcb2hkYWhcXGJhY2tlbmRcXHNyY1xccGVybWlzc2lvbnNcXHBlcm1pc3Npb25zLm1vZHVsZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBNb2R1bGUgfSBmcm9tICdAbmVzdGpzL2NvbW1vbic7XG5pbXBvcnQgeyBQZXJtaXNzaW9uc0NvbnRyb2xsZXIgfSBmcm9tICcuL3Blcm1pc3Npb25zLmNvbnRyb2xsZXInO1xuaW1wb3J0IHsgUGVybWlzc2lvbnNTZXJ2aWNlIH0gZnJvbSAnLi9wZXJtaXNzaW9ucy5zZXJ2aWNlJztcblxuQE1vZHVsZSh7IGNvbnRyb2xsZXJzOiBbUGVybWlzc2lvbnNDb250cm9sbGVyXSwgcHJvdmlkZXJzOiBbUGVybWlzc2lvbnNTZXJ2aWNlXSwgZXhwb3J0czogW1Blcm1pc3Npb25zU2VydmljZV0gfSlcbmV4cG9ydCBjbGFzcyBQZXJtaXNzaW9uc01vZHVsZSB7fVxuIl0sInZlcnNpb24iOjN9

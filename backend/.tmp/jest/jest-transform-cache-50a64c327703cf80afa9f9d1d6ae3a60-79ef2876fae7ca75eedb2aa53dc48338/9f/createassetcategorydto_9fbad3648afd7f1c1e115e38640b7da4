@@ -1,0 +1,40 @@
+c1a41180af746f721dbbd86b80763ec1
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateAssetCategoryDto = void 0;
+const class_validator_1 = require("class-validator");
+class CreateAssetCategoryDto {
+    organizationId;
+    name;
+    code;
+    description;
+}
+exports.CreateAssetCategoryDto = CreateAssetCategoryDto;
+__decorate([
+    (0, class_validator_1.IsUUID)(),
+    __metadata("design:type", String)
+], CreateAssetCategoryDto.prototype, "organizationId", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetCategoryDto.prototype, "name", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetCategoryDto.prototype, "code", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], CreateAssetCategoryDto.prototype, "description", void 0);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGFzc2V0c1xcZHRvXFxjcmVhdGUtYXNzZXQtY2F0ZWdvcnkuZHRvLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLHFEQUErRDtBQUMvRCxNQUFhLHNCQUFzQjtJQUFhLGNBQWMsQ0FBVTtJQUFhLElBQUksQ0FBVTtJQUEyQixJQUFJLENBQVU7SUFBMkIsV0FBVyxDQUFVO0NBQUU7QUFBOUwsd0RBQThMO0FBQTlJO0lBQVQsSUFBQSx3QkFBTSxHQUFFOzs4REFBeUI7QUFBYTtJQUFYLElBQUEsMEJBQVEsR0FBRTs7b0RBQWU7QUFBMkI7SUFBekIsSUFBQSw0QkFBVSxHQUFFO0lBQUUsSUFBQSwwQkFBUSxHQUFFOztvREFBZTtBQUEyQjtJQUF6QixJQUFBLDRCQUFVLEdBQUU7SUFBRSxJQUFBLDBCQUFRLEdBQUU7OzJEQUFzQiIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxceGFtcHBcXGh0ZG9jc1xcb2hkYWhcXGJhY2tlbmRcXHNyY1xcYXNzZXRzXFxkdG9cXGNyZWF0ZS1hc3NldC1jYXRlZ29yeS5kdG8udHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSXNPcHRpb25hbCwgSXNTdHJpbmcsIElzVVVJRCB9IGZyb20gJ2NsYXNzLXZhbGlkYXRvcic7XG5leHBvcnQgY2xhc3MgQ3JlYXRlQXNzZXRDYXRlZ29yeUR0byB7IEBJc1VVSUQoKSBvcmdhbml6YXRpb25JZCE6IHN0cmluZzsgQElzU3RyaW5nKCkgbmFtZSE6IHN0cmluZzsgQElzT3B0aW9uYWwoKSBASXNTdHJpbmcoKSBjb2RlPzogc3RyaW5nOyBASXNPcHRpb25hbCgpIEBJc1N0cmluZygpIGRlc2NyaXB0aW9uPzogc3RyaW5nOyB9XG4iXSwidmVyc2lvbiI6M30=

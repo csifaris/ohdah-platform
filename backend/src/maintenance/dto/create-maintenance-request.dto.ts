@@ -1,0 +1,2 @@
+import { IsNumber, IsOptional, IsString, IsUUID, Min } from 'class-validator';
+export class CreateMaintenanceRequestDto { @IsUUID() organizationId!: string; @IsUUID() assetId!: string; @IsOptional() @IsUUID() requestedById?: string; @IsString() issue!: string; @IsOptional() @IsString() priority?: string; @IsOptional() @IsString() technician?: string; @IsOptional() @IsNumber() @Min(0) cost?: number; }

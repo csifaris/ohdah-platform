@@ -1,0 +1,20 @@
+e15613c5d0e9a40ad7be5cf552f9bef2
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UsersModule = void 0;
+const common_1 = require("@nestjs/common");
+const users_controller_1 = require("./users.controller");
+const users_service_1 = require("./users.service");
+let UsersModule = class UsersModule {
+};
+exports.UsersModule = UsersModule;
+exports.UsersModule = UsersModule = __decorate([
+    (0, common_1.Module)({ controllers: [users_controller_1.UsersController], providers: [users_service_1.UsersService], exports: [users_service_1.UsersService] })
+], UsersModule);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXHVzZXJzXFx1c2Vycy5tb2R1bGUudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQUEsMkNBQXdDO0FBQ3hDLHlEQUFxRDtBQUNyRCxtREFBK0M7QUFHeEMsSUFBTSxXQUFXLEdBQWpCLE1BQU0sV0FBVztDQUFHLENBQUE7QUFBZCxrQ0FBVztzQkFBWCxXQUFXO0lBRHZCLElBQUEsZUFBTSxFQUFDLEVBQUUsV0FBVyxFQUFFLENBQUMsa0NBQWUsQ0FBQyxFQUFFLFNBQVMsRUFBRSxDQUFDLDRCQUFZLENBQUMsRUFBRSxPQUFPLEVBQUUsQ0FBQyw0QkFBWSxDQUFDLEVBQUUsQ0FBQztHQUNsRixXQUFXLENBQUciLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXHVzZXJzXFx1c2Vycy5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTW9kdWxlIH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHsgVXNlcnNDb250cm9sbGVyIH0gZnJvbSAnLi91c2Vycy5jb250cm9sbGVyJztcbmltcG9ydCB7IFVzZXJzU2VydmljZSB9IGZyb20gJy4vdXNlcnMuc2VydmljZSc7XG5cbkBNb2R1bGUoeyBjb250cm9sbGVyczogW1VzZXJzQ29udHJvbGxlcl0sIHByb3ZpZGVyczogW1VzZXJzU2VydmljZV0sIGV4cG9ydHM6IFtVc2Vyc1NlcnZpY2VdIH0pXG5leHBvcnQgY2xhc3MgVXNlcnNNb2R1bGUge31cbiJdLCJ2ZXJzaW9uIjozfQ==

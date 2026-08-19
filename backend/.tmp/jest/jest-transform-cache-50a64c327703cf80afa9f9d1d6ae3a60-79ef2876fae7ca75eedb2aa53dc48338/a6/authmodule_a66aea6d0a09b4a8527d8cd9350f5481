@@ -1,0 +1,24 @@
+be192bc0cd25d4570d12046ac7df9d6c
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AuthModule = void 0;
+const common_1 = require("@nestjs/common");
+const config_1 = require("@nestjs/config");
+const jwt_1 = require("@nestjs/jwt");
+const passport_1 = require("@nestjs/passport");
+const auth_controller_1 = require("./auth.controller");
+const auth_service_1 = require("./auth.service");
+const jwt_strategy_1 = require("./jwt.strategy");
+let AuthModule = class AuthModule {
+};
+exports.AuthModule = AuthModule;
+exports.AuthModule = AuthModule = __decorate([
+    (0, common_1.Module)({ imports: [config_1.ConfigModule, passport_1.PassportModule, jwt_1.JwtModule.registerAsync({ imports: [config_1.ConfigModule], inject: [config_1.ConfigService], useFactory: (config) => ({ secret: config.getOrThrow('JWT_ACCESS_SECRET'), signOptions: { expiresIn: config.get('JWT_ACCESS_EXPIRES_IN', '15m') } }) })], controllers: [auth_controller_1.AuthController], providers: [auth_service_1.AuthService, jwt_strategy_1.JwtStrategy], exports: [auth_service_1.AuthService] })
+], AuthModule);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGF1dGhcXGF1dGgubW9kdWxlLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUFBLDJDQUF3QztBQUN4QywyQ0FBNkQ7QUFDN0QscUNBQXdDO0FBQ3hDLCtDQUFrRDtBQUNsRCx1REFBbUQ7QUFDbkQsaURBQTZDO0FBQzdDLGlEQUE2QztBQUd0QyxJQUFNLFVBQVUsR0FBaEIsTUFBTSxVQUFVO0NBQUcsQ0FBQTtBQUFiLGdDQUFVO3FCQUFWLFVBQVU7SUFEdEIsSUFBQSxlQUFNLEVBQUMsRUFBRSxPQUFPLEVBQUUsQ0FBQyxxQkFBWSxFQUFFLHlCQUFjLEVBQUUsZUFBUyxDQUFDLGFBQWEsQ0FBQyxFQUFFLE9BQU8sRUFBRSxDQUFDLHFCQUFZLENBQUMsRUFBRSxNQUFNLEVBQUUsQ0FBQyxzQkFBYSxDQUFDLEVBQUUsVUFBVSxFQUFFLENBQUMsTUFBcUIsRUFBRSxFQUFFLENBQUMsQ0FBQyxFQUFFLE1BQU0sRUFBRSxNQUFNLENBQUMsVUFBVSxDQUFTLG1CQUFtQixDQUFDLEVBQUUsV0FBVyxFQUFFLEVBQUUsU0FBUyxFQUFFLE1BQU0sQ0FBQyxHQUFHLENBQVMsdUJBQXVCLEVBQUUsS0FBSyxDQUFDLEVBQUUsRUFBRSxDQUFDLEVBQUUsQ0FBQyxDQUFDLEVBQUUsV0FBVyxFQUFFLENBQUMsZ0NBQWMsQ0FBQyxFQUFFLFNBQVMsRUFBRSxDQUFDLDBCQUFXLEVBQUUsMEJBQVcsQ0FBQyxFQUFFLE9BQU8sRUFBRSxDQUFDLDBCQUFXLENBQUMsRUFBRSxDQUFDO0dBQ3pZLFVBQVUsQ0FBRyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxceGFtcHBcXGh0ZG9jc1xcb2hkYWhcXGJhY2tlbmRcXHNyY1xcYXV0aFxcYXV0aC5tb2R1bGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTW9kdWxlIH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHsgQ29uZmlnTW9kdWxlLCBDb25maWdTZXJ2aWNlIH0gZnJvbSAnQG5lc3Rqcy9jb25maWcnO1xuaW1wb3J0IHsgSnd0TW9kdWxlIH0gZnJvbSAnQG5lc3Rqcy9qd3QnO1xuaW1wb3J0IHsgUGFzc3BvcnRNb2R1bGUgfSBmcm9tICdAbmVzdGpzL3Bhc3Nwb3J0JztcbmltcG9ydCB7IEF1dGhDb250cm9sbGVyIH0gZnJvbSAnLi9hdXRoLmNvbnRyb2xsZXInO1xuaW1wb3J0IHsgQXV0aFNlcnZpY2UgfSBmcm9tICcuL2F1dGguc2VydmljZSc7XG5pbXBvcnQgeyBKd3RTdHJhdGVneSB9IGZyb20gJy4vand0LnN0cmF0ZWd5JztcblxuQE1vZHVsZSh7IGltcG9ydHM6IFtDb25maWdNb2R1bGUsIFBhc3Nwb3J0TW9kdWxlLCBKd3RNb2R1bGUucmVnaXN0ZXJBc3luYyh7IGltcG9ydHM6IFtDb25maWdNb2R1bGVdLCBpbmplY3Q6IFtDb25maWdTZXJ2aWNlXSwgdXNlRmFjdG9yeTogKGNvbmZpZzogQ29uZmlnU2VydmljZSkgPT4gKHsgc2VjcmV0OiBjb25maWcuZ2V0T3JUaHJvdzxzdHJpbmc+KCdKV1RfQUNDRVNTX1NFQ1JFVCcpLCBzaWduT3B0aW9uczogeyBleHBpcmVzSW46IGNvbmZpZy5nZXQ8c3RyaW5nPignSldUX0FDQ0VTU19FWFBJUkVTX0lOJywgJzE1bScpIH0gfSkgfSldLCBjb250cm9sbGVyczogW0F1dGhDb250cm9sbGVyXSwgcHJvdmlkZXJzOiBbQXV0aFNlcnZpY2UsIEp3dFN0cmF0ZWd5XSwgZXhwb3J0czogW0F1dGhTZXJ2aWNlXSB9KVxuZXhwb3J0IGNsYXNzIEF1dGhNb2R1bGUge31cbiJdLCJ2ZXJzaW9uIjozfQ==

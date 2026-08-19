@@ -1,0 +1,2 @@
+import { IsEmail, IsString, IsUUID, Matches, MinLength } from 'class-validator';
+export class RegisterDto { @IsString() @MinLength(2) fullName!: string; @IsEmail() email!: string; @IsString() @Matches(/^\+?[0-9 ()-]{7,20}$/) phone!: string; @IsString() @MinLength(8) password!: string; @IsString() @MinLength(2) department!: string; @IsString() @MinLength(2) jobTitle!: string; @IsUUID() organizationId!: string; }

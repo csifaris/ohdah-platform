@@ -1,0 +1,4 @@
+import { CheckCircle2, CircleDot, Clock3, XCircle } from 'lucide-react';
+import type { MaintenanceStatus } from '../types';
+const map: Record<MaintenanceStatus, { label: string; style: string; icon: typeof CheckCircle2 }> = { open: { label: 'طلب جديد', style: 'bg-indigo-100 text-primary', icon: CircleDot }, in_progress: { label: 'تحت الصيانة', style: 'bg-amber-100 text-warning', icon: Clock3 }, completed: { label: 'مكتملة', style: 'bg-emerald-100 text-success', icon: CheckCircle2 }, cancelled: { label: 'ملغاة', style: 'bg-slate-100 text-muted', icon: XCircle } };
+export function MaintenanceStatusBadge({ status }: { status: MaintenanceStatus }) { const item = map[status]; const Icon = item.icon; return <span className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold ${item.style}`}><Icon size={14} />{item.label}</span>; }

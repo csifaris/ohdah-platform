@@ -1,0 +1,8 @@
+import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { RegisterForm } from '../components/auth/RegisterForm';
+import { getApiErrorMessage } from '../services/api';
+import { register, type RegisterPayload } from '../services/auth.service';
+
+export function RegisterPage() { const navigate = useNavigate(); const [loading, setLoading] = useState(false); const [error, setError] = useState(''); const submit = async (payload: RegisterPayload) => { setLoading(true); setError(''); try { await register(payload); navigate('/login', { replace: true, state: { successMessage: 'تم إنشاء الحساب بنجاح. يمكنك تسجيل الدخول الآن.' } }); } catch (reason: unknown) { setError(getApiErrorMessage(reason, 'تعذر إنشاء الحساب.')); } finally { setLoading(false); } }; return <main className="flex min-h-screen items-center justify-center bg-slate-50 p-4 antialiased sm:p-8"><section className="w-full max-w-2xl rounded-2xl border border-slate-100 bg-white p-8 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] sm:p-12"><div className="mb-7 text-center"><div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-2xl font-bold text-white">ع</div><h1 className="text-2xl font-bold text-slate-900">إنشاء حساب جديد</h1><p className="mt-2 text-sm text-slate-500">أنشئ حسابك للوصول إلى نظام إدارة العهد والأصول</p></div><RegisterForm error={error} loading={loading} onSubmit={submit} /><Link className="mt-5 flex items-center justify-center gap-2 text-sm font-medium text-primary hover:underline" to="/login"><ArrowRight size={16} />لديك حساب؟ تسجيل الدخول</Link></section></main>; }

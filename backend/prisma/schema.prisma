@@ -1,0 +1,352 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+  SUSPENDED
+}
+
+enum AssetStatus {
+  ACTIVE
+  AVAILABLE
+  MAINTENANCE
+  OVERDUE
+  RETIRED
+}
+
+enum CustodyStatus {
+  ACTIVE
+  OVERDUE
+  RETURNED
+  LOST
+  MAINTENANCE
+}
+
+enum CustodyRequestStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ASSIGNED
+}
+
+enum MaintenanceStatus {
+  OPEN
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum NotificationType {
+  CUSTODY
+  MAINTENANCE
+  APPROVAL
+  SYSTEM
+}
+
+model Organization {
+  id           String       @id @default(uuid()) @db.Uuid
+  name         String
+  legalName    String?
+  defaultLocale String      @default("ar-SA")
+  defaultCurrency String    @default("SAR")
+  users        User[]
+  roles        Role[]
+  departments  Department[]
+  assetCategories AssetCategory[]
+  assets       Asset[]
+  employees    Employee[]
+  custodyRecords CustodyRecord[]
+  custodyRequests CustodyRequest[]
+  maintenanceRequests MaintenanceRequest[]
+  notifications Notification[]
+  auditLogs    AuditLog[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([name])
+}
+
+model User {
+  id            String         @id @default(uuid()) @db.Uuid
+  organizationId String        @db.Uuid
+  organization  Organization   @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  email         String
+  passwordHash  String
+  name          String
+  status        UserStatus     @default(PENDING)
+  departmentId  String?        @db.Uuid
+  department    Department?    @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  approvedCustodyRequests CustodyRequest[] @relation("CustodyRequestApprover")
+  notifications Notification[]
+  roles         UserRole[]
+  refreshTokens RefreshToken[]
+  auditLogs     AuditLog[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  lastLoginAt   DateTime?
+
+  @@unique([organizationId, email])
+  @@index([email])
+  @@index([organizationId, status])
+}
+
+model Role {
+  id             String           @id @default(uuid()) @db.Uuid
+  organizationId String           @db.Uuid
+  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  description    String?
+  isSystem       Boolean          @default(false)
+  users          UserRole[]
+  permissions    RolePermission[]
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+
+  @@unique([organizationId, name])
+  @@index([organizationId])
+}
+
+model Permission {
+  id          String           @id @default(uuid()) @db.Uuid
+  resource    String
+  action      String
+  description String?
+  roles       RolePermission[]
+  createdAt   DateTime         @default(now())
+
+  @@unique([resource, action])
+}
+
+model UserRole {
+  userId     String   @db.Uuid
+  roleId     String   @db.Uuid
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role       Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  assignedAt DateTime @default(now())
+
+  @@id([userId, roleId])
+}
+
+model RolePermission {
+  roleId       String     @db.Uuid
+  permissionId String     @db.Uuid
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model Department {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  code           String?
+  users          User[]
+  employees      Employee[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, name])
+}
+
+model AssetCategory {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  name           String
+  code           String?
+  description    String?
+  assets         Asset[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, name])
+  @@index([organizationId])
+}
+
+model Asset {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  categoryId     String       @db.Uuid
+  category       AssetCategory @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  assetNumber    String
+  name           String
+  description    String?
+  serialNumber   String?
+  status         AssetStatus  @default(AVAILABLE)
+  condition      String?
+  purchaseDate   DateTime?
+  purchaseCost   Decimal?     @db.Decimal(14, 2)
+  currentValue   Decimal?     @db.Decimal(14, 2)
+  currency       String       @default("SAR")
+  location       String?
+  warrantyEnd    DateTime?
+  custodyRecords CustodyRecord[]
+  custodyRequests CustodyRequest[]
+  maintenanceRequests MaintenanceRequest[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, assetNumber])
+  @@index([organizationId, status])
+  @@index([organizationId, name])
+  @@index([serialNumber])
+}
+
+model Employee {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  departmentId   String?      @db.Uuid
+  department     Department?  @relation(fields: [departmentId], references: [id], onDelete: SetNull)
+  employeeNumber String
+  name           String
+  email          String
+  phone          String?
+  jobTitle       String?
+  status         String       @default("ACTIVE")
+  custodyRecords CustodyRecord[]
+  custodyRequests CustodyRequest[]
+  maintenanceRequests MaintenanceRequest[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([organizationId, employeeNumber])
+  @@unique([organizationId, email])
+  @@index([organizationId, name])
+  @@index([departmentId])
+}
+
+model CustodyRecord {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  assetId        String       @db.Uuid
+  asset          Asset        @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  employeeId     String       @db.Uuid
+  employee       Employee     @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+  assignedAt     DateTime     @default(now())
+  dueAt          DateTime?
+  returnedAt     DateTime?
+  status         CustodyStatus @default(ACTIVE)
+  handoverNotes  String?
+  returnNotes    String?
+  history        CustodyHistory[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId, status])
+  @@index([assetId, status])
+  @@index([employeeId, status])
+}
+
+model CustodyHistory {
+  id          String       @id @default(uuid()) @db.Uuid
+  custodyId   String       @db.Uuid
+  custody     CustodyRecord @relation(fields: [custodyId], references: [id], onDelete: Cascade)
+  event       String
+  notes       String?
+  performedBy String?
+  createdAt   DateTime     @default(now())
+
+  @@index([custodyId, createdAt])
+}
+
+model CustodyRequest {
+  id             String              @id @default(uuid()) @db.Uuid
+  organizationId String              @db.Uuid
+  organization   Organization        @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  requesterId    String              @db.Uuid
+  requester      Employee            @relation(fields: [requesterId], references: [id], onDelete: Restrict)
+  assetId        String?             @db.Uuid
+  asset          Asset?              @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  category       String
+  reason         String
+  description    String?
+  priority       String              @default("NORMAL")
+  status         CustodyRequestStatus @default(PENDING)
+  approvedById   String?             @db.Uuid
+  approvedBy     User?               @relation("CustodyRequestApprover", fields: [approvedById], references: [id], onDelete: SetNull)
+  reviewedAt     DateTime?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  @@index([organizationId, status])
+  @@index([requesterId])
+}
+
+model MaintenanceRequest {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  assetId        String       @db.Uuid
+  asset          Asset        @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  requestedById  String?      @db.Uuid
+  requestedBy    Employee?    @relation(fields: [requestedById], references: [id], onDelete: SetNull)
+  issue          String
+  priority       String       @default("NORMAL")
+  status         MaintenanceStatus @default(OPEN)
+  technician     String?
+  cost           Decimal?     @db.Decimal(14, 2)
+  resolvedAt     DateTime?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@index([organizationId, status])
+  @@index([assetId, status])
+}
+
+model Notification {
+  id             String           @id @default(uuid()) @db.Uuid
+  organizationId String           @db.Uuid
+  organization   Organization     @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  recipientId    String           @db.Uuid
+  recipient      User             @relation(fields: [recipientId], references: [id], onDelete: Cascade)
+  type           NotificationType
+  title          String
+  message        String
+  isRead         Boolean          @default(false)
+  isImportant    Boolean          @default(false)
+  createdAt      DateTime         @default(now())
+
+  @@index([recipientId, isRead, createdAt])
+  @@index([organizationId, type])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid()) @db.Uuid
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String
+  expiresAt DateTime
+  revokedAt DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([userId, expiresAt])
+}
+
+model AuditLog {
+  id             String       @id @default(uuid()) @db.Uuid
+  organizationId String       @db.Uuid
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  actorId        String?      @db.Uuid
+  actor          User?        @relation(fields: [actorId], references: [id], onDelete: SetNull)
+  action         String
+  resource       String
+  resourceId     String?
+  metadata       Json?
+  createdAt      DateTime     @default(now())
+
+  @@index([organizationId, createdAt])
+  @@index([resource, resourceId])
+}

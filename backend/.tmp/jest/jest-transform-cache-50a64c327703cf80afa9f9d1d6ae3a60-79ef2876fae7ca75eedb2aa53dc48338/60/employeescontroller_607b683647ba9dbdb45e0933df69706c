@@ -1,0 +1,75 @@
+f652199866d26d347d04bd652030e9dc
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmployeesController = void 0;
+const common_1 = require("@nestjs/common");
+const employees_service_1 = require("./employees.service");
+const create_employee_dto_1 = require("./dto/create-employee.dto");
+const update_employee_dto_1 = require("./dto/update-employee.dto");
+let EmployeesController = class EmployeesController {
+    employees;
+    constructor(employees) {
+        this.employees = employees;
+    }
+    create(dto) { return this.employees.create(dto); }
+    findAll(organizationId, search, departmentId) { return this.employees.findAll(organizationId, search, departmentId); }
+    findOne(id) { return this.employees.findOne(id); }
+    update(id, dto) { return this.employees.update(id, dto); }
+    remove(id) { return this.employees.remove(id); }
+};
+exports.EmployeesController = EmployeesController;
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_employee_dto_1.CreateEmployeeDto]),
+    __metadata("design:returntype", void 0)
+], EmployeesController.prototype, "create", null);
+__decorate([
+    (0, common_1.Get)(),
+    __param(0, (0, common_1.Query)('organizationId')),
+    __param(1, (0, common_1.Query)('search')),
+    __param(2, (0, common_1.Query)('departmentId')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, String]),
+    __metadata("design:returntype", void 0)
+], EmployeesController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], EmployeesController.prototype, "findOne", null);
+__decorate([
+    (0, common_1.Patch)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_employee_dto_1.UpdateEmployeeDto]),
+    __metadata("design:returntype", void 0)
+], EmployeesController.prototype, "update", null);
+__decorate([
+    (0, common_1.Delete)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], EmployeesController.prototype, "remove", null);
+exports.EmployeesController = EmployeesController = __decorate([
+    (0, common_1.Controller)('employees'),
+    __metadata("design:paramtypes", [employees_service_1.EmployeesService])
+], EmployeesController);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGVtcGxveWVlc1xcZW1wbG95ZWVzLmNvbnRyb2xsZXIudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsMkNBQTBGO0FBQzFGLDJEQUF1RDtBQUN2RCxtRUFBOEQ7QUFDOUQsbUVBQThEO0FBRXZELElBQU0sbUJBQW1CLEdBQXpCLE1BQU0sbUJBQW1CO0lBQWdDO0lBQTdCLFlBQTZCLFNBQTJCO1FBQTNCLGNBQVMsR0FBVCxTQUFTLENBQWtCO0lBQUcsQ0FBQztJQUFTLE1BQU0sQ0FBUyxHQUFzQixJQUFJLE9BQU8sSUFBSSxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQVEsT0FBTyxDQUEwQixjQUFzQixFQUFtQixNQUFlLEVBQXlCLFlBQXFCLElBQUksT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxjQUFjLEVBQUUsTUFBTSxFQUFFLFlBQVksQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUFhLE9BQU8sQ0FBYyxFQUFVLElBQUksT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFBZSxNQUFNLENBQWMsRUFBVSxFQUFVLEdBQXNCLElBQUksT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxFQUFFLEVBQUUsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQWdCLE1BQU0sQ0FBYyxFQUFVLElBQUksT0FBTyxJQUFJLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7Q0FBRSxDQUFBO0FBQXJxQixrREFBbUI7QUFBd0U7SUFBUCxJQUFBLGFBQUksR0FBRTtJQUFTLFdBQUEsSUFBQSxhQUFJLEdBQUUsQ0FBQTs7cUNBQU0sdUNBQWlCOztpREFBd0M7QUFBUTtJQUFOLElBQUEsWUFBRyxHQUFFO0lBQVUsV0FBQSxJQUFBLGNBQUssRUFBQyxnQkFBZ0IsQ0FBQyxDQUFBO0lBQTBCLFdBQUEsSUFBQSxjQUFLLEVBQUMsUUFBUSxDQUFDLENBQUE7SUFBbUIsV0FBQSxJQUFBLGNBQUssRUFBQyxjQUFjLENBQUMsQ0FBQTs7OztrREFBZ0c7QUFBYTtJQUFYLElBQUEsWUFBRyxFQUFDLEtBQUssQ0FBQztJQUFVLFdBQUEsSUFBQSxjQUFLLEVBQUMsSUFBSSxDQUFDLENBQUE7Ozs7a0RBQW1EO0FBQWU7SUFBYixJQUFBLGNBQUssRUFBQyxLQUFLLENBQUM7SUFBUyxXQUFBLElBQUEsY0FBSyxFQUFDLElBQUksQ0FBQyxDQUFBO0lBQWMsV0FBQSxJQUFBLGFBQUksR0FBRSxDQUFBOzs2Q0FBTSx1Q0FBaUI7O2lEQUE0QztBQUFnQjtJQUFkLElBQUEsZUFBTSxFQUFDLEtBQUssQ0FBQztJQUFTLFdBQUEsSUFBQSxjQUFLLEVBQUMsSUFBSSxDQUFDLENBQUE7Ozs7aURBQWtEOzhCQUFucUIsbUJBQW1CO0lBRC9CLElBQUEsbUJBQVUsRUFBQyxXQUFXLENBQUM7cUNBQ21ELG9DQUFnQjtHQUE5RSxtQkFBbUIsQ0FBa3BCIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFx4YW1wcFxcaHRkb2NzXFxvaGRhaFxcYmFja2VuZFxcc3JjXFxlbXBsb3llZXNcXGVtcGxveWVlcy5jb250cm9sbGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEJvZHksIENvbnRyb2xsZXIsIERlbGV0ZSwgR2V0LCBQYXJhbSwgUGF0Y2gsIFBvc3QsIFF1ZXJ5IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHsgRW1wbG95ZWVzU2VydmljZSB9IGZyb20gJy4vZW1wbG95ZWVzLnNlcnZpY2UnO1xuaW1wb3J0IHsgQ3JlYXRlRW1wbG95ZWVEdG8gfSBmcm9tICcuL2R0by9jcmVhdGUtZW1wbG95ZWUuZHRvJztcbmltcG9ydCB7IFVwZGF0ZUVtcGxveWVlRHRvIH0gZnJvbSAnLi9kdG8vdXBkYXRlLWVtcGxveWVlLmR0byc7XG5AQ29udHJvbGxlcignZW1wbG95ZWVzJylcbmV4cG9ydCBjbGFzcyBFbXBsb3llZXNDb250cm9sbGVyIHsgY29uc3RydWN0b3IocHJpdmF0ZSByZWFkb25seSBlbXBsb3llZXM6IEVtcGxveWVlc1NlcnZpY2UpIHt9IEBQb3N0KCkgY3JlYXRlKEBCb2R5KCkgZHRvOiBDcmVhdGVFbXBsb3llZUR0bykgeyByZXR1cm4gdGhpcy5lbXBsb3llZXMuY3JlYXRlKGR0byk7IH0gQEdldCgpIGZpbmRBbGwoQFF1ZXJ5KCdvcmdhbml6YXRpb25JZCcpIG9yZ2FuaXphdGlvbklkOiBzdHJpbmcsIEBRdWVyeSgnc2VhcmNoJykgc2VhcmNoPzogc3RyaW5nLCBAUXVlcnkoJ2RlcGFydG1lbnRJZCcpIGRlcGFydG1lbnRJZD86IHN0cmluZykgeyByZXR1cm4gdGhpcy5lbXBsb3llZXMuZmluZEFsbChvcmdhbml6YXRpb25JZCwgc2VhcmNoLCBkZXBhcnRtZW50SWQpOyB9IEBHZXQoJzppZCcpIGZpbmRPbmUoQFBhcmFtKCdpZCcpIGlkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMuZW1wbG95ZWVzLmZpbmRPbmUoaWQpOyB9IEBQYXRjaCgnOmlkJykgdXBkYXRlKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nLCBAQm9keSgpIGR0bzogVXBkYXRlRW1wbG95ZWVEdG8pIHsgcmV0dXJuIHRoaXMuZW1wbG95ZWVzLnVwZGF0ZShpZCwgZHRvKTsgfSBARGVsZXRlKCc6aWQnKSByZW1vdmUoQFBhcmFtKCdpZCcpIGlkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMuZW1wbG95ZWVzLnJlbW92ZShpZCk7IH0gfVxuIl0sInZlcnNpb24iOjN9

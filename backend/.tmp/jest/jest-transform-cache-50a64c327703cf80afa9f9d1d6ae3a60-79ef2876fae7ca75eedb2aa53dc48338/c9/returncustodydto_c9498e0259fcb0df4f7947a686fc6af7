@@ -1,0 +1,24 @@
+e36d72ea84478c8c2c8d5b36d4baf9b0
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ReturnCustodyDto = void 0;
+const class_validator_1 = require("class-validator");
+class ReturnCustodyDto {
+    returnNotes;
+}
+exports.ReturnCustodyDto = ReturnCustodyDto;
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], ReturnCustodyDto.prototype, "returnNotes", void 0);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGN1c3RvZHlcXGR0b1xccmV0dXJuLWN1c3RvZHkuZHRvLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLHFEQUF1RDtBQUN2RCxNQUFhLGdCQUFnQjtJQUE2QixXQUFXLENBQVU7Q0FBRTtBQUFqRiw0Q0FBaUY7QUFBdkI7SUFBekIsSUFBQSw0QkFBVSxHQUFFO0lBQUUsSUFBQSwwQkFBUSxHQUFFOztxREFBc0IiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGN1c3RvZHlcXGR0b1xccmV0dXJuLWN1c3RvZHkuZHRvLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IElzT3B0aW9uYWwsIElzU3RyaW5nIH0gZnJvbSAnY2xhc3MtdmFsaWRhdG9yJztcbmV4cG9ydCBjbGFzcyBSZXR1cm5DdXN0b2R5RHRvIHsgQElzT3B0aW9uYWwoKSBASXNTdHJpbmcoKSByZXR1cm5Ob3Rlcz86IHN0cmluZzsgfVxuIl0sInZlcnNpb24iOjN9

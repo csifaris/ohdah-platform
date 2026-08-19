@@ -1,0 +1,3 @@
+type PlaceholderPageProps = { title: string; description: string };
+
+export function PlaceholderPage({ title, description }: PlaceholderPageProps) { return <section className="space-y-6"><div><p className="mb-2 text-sm font-medium text-primary">عُهدة</p><h1 className="text-3xl font-bold tracking-tight text-ink">{title}</h1><p className="mt-2 text-muted">{description}</p></div><div className="rounded-2xl border border-dashed border-border bg-white p-12 text-center shadow-soft"><p className="font-semibold text-ink">هذه الصفحة قيد الإنشاء</p><p className="mt-2 text-sm text-muted">سيتم ربطها ببيانات النظام في مرحلة لاحقة.</p></div></section>; }

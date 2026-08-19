@@ -1,0 +1,34 @@
+9a067ee39ad81935e1400c0a23d1c787
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PermissionsController = void 0;
+const common_1 = require("@nestjs/common");
+const permissions_service_1 = require("./permissions.service");
+let PermissionsController = class PermissionsController {
+    permissionsService;
+    constructor(permissionsService) {
+        this.permissionsService = permissionsService;
+    }
+    findAll() { return this.permissionsService.findAll(); }
+};
+exports.PermissionsController = PermissionsController;
+__decorate([
+    (0, common_1.Get)(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], PermissionsController.prototype, "findAll", null);
+exports.PermissionsController = PermissionsController = __decorate([
+    (0, common_1.Controller)('permissions'),
+    __metadata("design:paramtypes", [permissions_service_1.PermissionsService])
+], PermissionsController);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXHBlcm1pc3Npb25zXFxwZXJtaXNzaW9ucy5jb250cm9sbGVyLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7OztBQUFBLDJDQUFpRDtBQUNqRCwrREFBMkQ7QUFHcEQsSUFBTSxxQkFBcUIsR0FBM0IsTUFBTSxxQkFBcUI7SUFBZ0M7SUFBN0IsWUFBNkIsa0JBQXNDO1FBQXRDLHVCQUFrQixHQUFsQixrQkFBa0IsQ0FBb0I7SUFBRyxDQUFDO0lBQVEsT0FBTyxLQUFLLE9BQU8sSUFBSSxDQUFDLGtCQUFrQixDQUFDLE9BQU8sRUFBRSxDQUFDLENBQUMsQ0FBQztDQUFFLENBQUE7QUFBaEssc0RBQXFCO0FBQWtGO0lBQU4sSUFBQSxZQUFHLEdBQUU7Ozs7b0RBQXdEO2dDQUE5SixxQkFBcUI7SUFEakMsSUFBQSxtQkFBVSxFQUFDLGFBQWEsQ0FBQztxQ0FDNEQsd0NBQWtCO0dBQTNGLHFCQUFxQixDQUEySSIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJDOlxceGFtcHBcXGh0ZG9jc1xcb2hkYWhcXGJhY2tlbmRcXHNyY1xccGVybWlzc2lvbnNcXHBlcm1pc3Npb25zLmNvbnRyb2xsZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29udHJvbGxlciwgR2V0IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHsgUGVybWlzc2lvbnNTZXJ2aWNlIH0gZnJvbSAnLi9wZXJtaXNzaW9ucy5zZXJ2aWNlJztcblxuQENvbnRyb2xsZXIoJ3Blcm1pc3Npb25zJylcbmV4cG9ydCBjbGFzcyBQZXJtaXNzaW9uc0NvbnRyb2xsZXIgeyBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IHBlcm1pc3Npb25zU2VydmljZTogUGVybWlzc2lvbnNTZXJ2aWNlKSB7fSBAR2V0KCkgZmluZEFsbCgpIHsgcmV0dXJuIHRoaXMucGVybWlzc2lvbnNTZXJ2aWNlLmZpbmRBbGwoKTsgfSB9XG4iXSwidmVyc2lvbiI6M30=

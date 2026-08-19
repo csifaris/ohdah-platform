@@ -1,0 +1,7 @@
+import { Activity, AlertCircle, Boxes, Plus } from 'lucide-react';
+import { AssetSummary } from '../components/dashboard/AssetSummary';
+import { PendingRequests } from '../components/dashboard/PendingRequests';
+import { RecentActivity } from '../components/dashboard/RecentActivity';
+import { StatCard } from '../components/dashboard/StatCard';
+
+export function DashboardPage() { return <div className="space-y-6"><div className="flex flex-col gap-5 rounded-2xl border border-border bg-white p-6 shadow-soft sm:p-8 lg:flex-row lg:items-end lg:justify-between"><div><p className="mb-2 text-sm font-semibold text-primary">مركز التحكم الرئيسي</p><h1 className="text-3xl font-bold tracking-tight text-ink">نظرة عامة على الأصول</h1><p className="mt-2 text-base text-muted">ملخص شامل لحالة العهد والأصول في المؤسسة حتى اليوم.</p></div><button className="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 font-medium text-white shadow-sm transition hover:bg-primary/90"><Plus size={20} />إضافة أصل جديد</button></div><div className="grid gap-4 sm:grid-cols-3"><StatCard label="إجمالي الأصول المسجلة" value="3,850" trend="12%" trendDirection="up" icon={Boxes} /><StatCard label="العهد النشطة" value="1,250" trend="5%" trendDirection="up" icon={Activity} tone="success" /><StatCard label="عمليات قيد الانتظار" value="48" trendLabel="تحتاج مراجعة" icon={AlertCircle} tone="danger" /></div><AssetSummary /><div className="grid gap-6 xl:grid-cols-3"><div className="xl:col-span-2"><RecentActivity /></div><PendingRequests /></div></div>; }

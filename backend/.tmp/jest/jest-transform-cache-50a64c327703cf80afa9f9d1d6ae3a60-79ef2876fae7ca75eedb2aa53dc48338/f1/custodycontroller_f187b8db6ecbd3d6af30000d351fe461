@@ -1,0 +1,103 @@
+2217b2b71781a87b4e289f09405bf150
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CustodyController = void 0;
+const common_1 = require("@nestjs/common");
+const client_1 = require("@prisma/client");
+const custody_service_1 = require("./custody.service");
+const create_custody_record_dto_1 = require("./dto/create-custody-record.dto");
+const create_custody_request_dto_1 = require("./dto/create-custody-request.dto");
+const return_custody_dto_1 = require("./dto/return-custody.dto");
+let CustodyController = class CustodyController {
+    custody;
+    constructor(custody) {
+        this.custody = custody;
+    }
+    records(organizationId, status) { return this.custody.findRecords(organizationId, status); }
+    assign(dto) { return this.custody.assign(dto); }
+    record(id) { return this.custody.findRecord(id); }
+    returnRecord(id, dto) { return this.custody.returnRecord(id, dto); }
+    requests(organizationId, status) { return this.custody.findRequests(organizationId, status); }
+    createRequest(dto) { return this.custody.createRequest(dto); }
+    approve(id, approvedById) { return this.custody.approveRequest(id, approvedById); }
+    reject(id, approvedById) { return this.custody.rejectRequest(id, approvedById); }
+};
+exports.CustodyController = CustodyController;
+__decorate([
+    (0, common_1.Get)('records'),
+    __param(0, (0, common_1.Query)('organizationId')),
+    __param(1, (0, common_1.Query)('status')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "records", null);
+__decorate([
+    (0, common_1.Post)('records'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_custody_record_dto_1.CreateCustodyRecordDto]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "assign", null);
+__decorate([
+    (0, common_1.Get)('records/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "record", null);
+__decorate([
+    (0, common_1.Patch)('records/:id/return'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, return_custody_dto_1.ReturnCustodyDto]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "returnRecord", null);
+__decorate([
+    (0, common_1.Get)('requests'),
+    __param(0, (0, common_1.Query)('organizationId')),
+    __param(1, (0, common_1.Query)('status')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "requests", null);
+__decorate([
+    (0, common_1.Post)('requests'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_custody_request_dto_1.CreateCustodyRequestDto]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "createRequest", null);
+__decorate([
+    (0, common_1.Patch)('requests/:id/approve'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)('approvedById')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "approve", null);
+__decorate([
+    (0, common_1.Patch)('requests/:id/reject'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)('approvedById')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:returntype", void 0)
+], CustodyController.prototype, "reject", null);
+exports.CustodyController = CustodyController = __decorate([
+    (0, common_1.Controller)('custody'),
+    __metadata("design:paramtypes", [custody_service_1.CustodyService])
+], CustodyController);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXHhhbXBwXFxodGRvY3NcXG9oZGFoXFxiYWNrZW5kXFxzcmNcXGN1c3RvZHlcXGN1c3RvZHkuY29udHJvbGxlci50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7QUFBQSwyQ0FBa0Y7QUFDbEYsMkNBQXFFO0FBQ3JFLHVEQUFtRDtBQUNuRCwrRUFBeUU7QUFDekUsaUZBQTJFO0FBQzNFLGlFQUE0RDtBQUVyRCxJQUFNLGlCQUFpQixHQUF2QixNQUFNLGlCQUFpQjtJQUNDO0lBQTdCLFlBQTZCLE9BQXVCO1FBQXZCLFlBQU8sR0FBUCxPQUFPLENBQWdCO0lBQUcsQ0FBQztJQUN4QyxPQUFPLENBQTBCLGNBQXNCLEVBQW1CLE1BQXNCLElBQUksT0FBTyxJQUFJLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxjQUFjLEVBQUUsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQzdKLE1BQU0sQ0FBUyxHQUEyQixJQUFJLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQzdFLE1BQU0sQ0FBYyxFQUFVLElBQUksT0FBTyxJQUFJLENBQUMsT0FBTyxDQUFDLFVBQVUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDLENBQUM7SUFDOUQsWUFBWSxDQUFjLEVBQVUsRUFBVSxHQUFxQixJQUFJLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxZQUFZLENBQUMsRUFBRSxFQUFFLEdBQUcsQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUMvSCxRQUFRLENBQTBCLGNBQXNCLEVBQW1CLE1BQTZCLElBQUksT0FBTyxJQUFJLENBQUMsT0FBTyxDQUFDLFlBQVksQ0FBQyxjQUFjLEVBQUUsTUFBTSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3RLLGFBQWEsQ0FBUyxHQUE0QixJQUFJLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxhQUFhLENBQUMsR0FBRyxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ2xGLE9BQU8sQ0FBYyxFQUFVLEVBQXdCLFlBQW9CLElBQUksT0FBTyxJQUFJLENBQUMsT0FBTyxDQUFDLGNBQWMsQ0FBQyxFQUFFLEVBQUUsWUFBWSxDQUFDLENBQUMsQ0FBQyxDQUFDO0lBQ3ZJLE1BQU0sQ0FBYyxFQUFVLEVBQXdCLFlBQW9CLElBQUksT0FBTyxJQUFJLENBQUMsT0FBTyxDQUFDLGFBQWEsQ0FBQyxFQUFFLEVBQUUsWUFBWSxDQUFDLENBQUMsQ0FBQyxDQUFDO0NBQ25LLENBQUE7QUFWWSw4Q0FBaUI7QUFFWjtJQUFmLElBQUEsWUFBRyxFQUFDLFNBQVMsQ0FBQztJQUFVLFdBQUEsSUFBQSxjQUFLLEVBQUMsZ0JBQWdCLENBQUMsQ0FBQTtJQUEwQixXQUFBLElBQUEsY0FBSyxFQUFDLFFBQVEsQ0FBQyxDQUFBOzs7O2dEQUFxRjtBQUM3SjtJQUFoQixJQUFBLGFBQUksRUFBQyxTQUFTLENBQUM7SUFBUyxXQUFBLElBQUEsYUFBSSxHQUFFLENBQUE7O3FDQUFNLGtEQUFzQjs7K0NBQXNDO0FBQzdFO0lBQW5CLElBQUEsWUFBRyxFQUFDLGFBQWEsQ0FBQztJQUFTLFdBQUEsSUFBQSxjQUFLLEVBQUMsSUFBSSxDQUFDLENBQUE7Ozs7K0NBQW9EO0FBQzlEO0lBQTVCLElBQUEsY0FBSyxFQUFDLG9CQUFvQixDQUFDO0lBQWUsV0FBQSxJQUFBLGNBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTtJQUFjLFdBQUEsSUFBQSxhQUFJLEdBQUUsQ0FBQTs7NkNBQU0scUNBQWdCOztxREFBZ0Q7QUFDL0g7SUFBaEIsSUFBQSxZQUFHLEVBQUMsVUFBVSxDQUFDO0lBQVcsV0FBQSxJQUFBLGNBQUssRUFBQyxnQkFBZ0IsQ0FBQyxDQUFBO0lBQTBCLFdBQUEsSUFBQSxjQUFLLEVBQUMsUUFBUSxDQUFDLENBQUE7Ozs7aURBQTZGO0FBQ3RLO0lBQWpCLElBQUEsYUFBSSxFQUFDLFVBQVUsQ0FBQztJQUFnQixXQUFBLElBQUEsYUFBSSxHQUFFLENBQUE7O3FDQUFNLG9EQUF1Qjs7c0RBQTZDO0FBQ2xGO0lBQTlCLElBQUEsY0FBSyxFQUFDLHNCQUFzQixDQUFDO0lBQVUsV0FBQSxJQUFBLGNBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTtJQUFjLFdBQUEsSUFBQSxhQUFJLEVBQUMsY0FBYyxDQUFDLENBQUE7Ozs7Z0RBQWdGO0FBQ3ZJO0lBQTdCLElBQUEsY0FBSyxFQUFDLHFCQUFxQixDQUFDO0lBQVMsV0FBQSxJQUFBLGNBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTtJQUFjLFdBQUEsSUFBQSxhQUFJLEVBQUMsY0FBYyxDQUFDLENBQUE7Ozs7K0NBQStFOzRCQVR2SixpQkFBaUI7SUFEN0IsSUFBQSxtQkFBVSxFQUFDLFNBQVMsQ0FBQztxQ0FFa0IsZ0NBQWM7R0FEekMsaUJBQWlCLENBVTdCIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFx4YW1wcFxcaHRkb2NzXFxvaGRhaFxcYmFja2VuZFxcc3JjXFxjdXN0b2R5XFxjdXN0b2R5LmNvbnRyb2xsZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQm9keSwgQ29udHJvbGxlciwgR2V0LCBQYXJhbSwgUGF0Y2gsIFBvc3QsIFF1ZXJ5IH0gZnJvbSAnQG5lc3Rqcy9jb21tb24nO1xuaW1wb3J0IHsgQ3VzdG9keVJlcXVlc3RTdGF0dXMsIEN1c3RvZHlTdGF0dXMgfSBmcm9tICdAcHJpc21hL2NsaWVudCc7XG5pbXBvcnQgeyBDdXN0b2R5U2VydmljZSB9IGZyb20gJy4vY3VzdG9keS5zZXJ2aWNlJztcbmltcG9ydCB7IENyZWF0ZUN1c3RvZHlSZWNvcmREdG8gfSBmcm9tICcuL2R0by9jcmVhdGUtY3VzdG9keS1yZWNvcmQuZHRvJztcbmltcG9ydCB7IENyZWF0ZUN1c3RvZHlSZXF1ZXN0RHRvIH0gZnJvbSAnLi9kdG8vY3JlYXRlLWN1c3RvZHktcmVxdWVzdC5kdG8nO1xuaW1wb3J0IHsgUmV0dXJuQ3VzdG9keUR0byB9IGZyb20gJy4vZHRvL3JldHVybi1jdXN0b2R5LmR0byc7XG5AQ29udHJvbGxlcignY3VzdG9keScpXG5leHBvcnQgY2xhc3MgQ3VzdG9keUNvbnRyb2xsZXIge1xuICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGN1c3RvZHk6IEN1c3RvZHlTZXJ2aWNlKSB7fVxuICBAR2V0KCdyZWNvcmRzJykgcmVjb3JkcyhAUXVlcnkoJ29yZ2FuaXphdGlvbklkJykgb3JnYW5pemF0aW9uSWQ6IHN0cmluZywgQFF1ZXJ5KCdzdGF0dXMnKSBzdGF0dXM/OiBDdXN0b2R5U3RhdHVzKSB7IHJldHVybiB0aGlzLmN1c3RvZHkuZmluZFJlY29yZHMob3JnYW5pemF0aW9uSWQsIHN0YXR1cyk7IH1cbiAgQFBvc3QoJ3JlY29yZHMnKSBhc3NpZ24oQEJvZHkoKSBkdG86IENyZWF0ZUN1c3RvZHlSZWNvcmREdG8pIHsgcmV0dXJuIHRoaXMuY3VzdG9keS5hc3NpZ24oZHRvKTsgfVxuICBAR2V0KCdyZWNvcmRzLzppZCcpIHJlY29yZChAUGFyYW0oJ2lkJykgaWQ6IHN0cmluZykgeyByZXR1cm4gdGhpcy5jdXN0b2R5LmZpbmRSZWNvcmQoaWQpOyB9XG4gIEBQYXRjaCgncmVjb3Jkcy86aWQvcmV0dXJuJykgcmV0dXJuUmVjb3JkKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nLCBAQm9keSgpIGR0bzogUmV0dXJuQ3VzdG9keUR0bykgeyByZXR1cm4gdGhpcy5jdXN0b2R5LnJldHVyblJlY29yZChpZCwgZHRvKTsgfVxuICBAR2V0KCdyZXF1ZXN0cycpIHJlcXVlc3RzKEBRdWVyeSgnb3JnYW5pemF0aW9uSWQnKSBvcmdhbml6YXRpb25JZDogc3RyaW5nLCBAUXVlcnkoJ3N0YXR1cycpIHN0YXR1cz86IEN1c3RvZHlSZXF1ZXN0U3RhdHVzKSB7IHJldHVybiB0aGlzLmN1c3RvZHkuZmluZFJlcXVlc3RzKG9yZ2FuaXphdGlvbklkLCBzdGF0dXMpOyB9XG4gIEBQb3N0KCdyZXF1ZXN0cycpIGNyZWF0ZVJlcXVlc3QoQEJvZHkoKSBkdG86IENyZWF0ZUN1c3RvZHlSZXF1ZXN0RHRvKSB7IHJldHVybiB0aGlzLmN1c3RvZHkuY3JlYXRlUmVxdWVzdChkdG8pOyB9XG4gIEBQYXRjaCgncmVxdWVzdHMvOmlkL2FwcHJvdmUnKSBhcHByb3ZlKEBQYXJhbSgnaWQnKSBpZDogc3RyaW5nLCBAQm9keSgnYXBwcm92ZWRCeUlkJykgYXBwcm92ZWRCeUlkOiBzdHJpbmcpIHsgcmV0dXJuIHRoaXMuY3VzdG9keS5hcHByb3ZlUmVxdWVzdChpZCwgYXBwcm92ZWRCeUlkKTsgfVxuICBAUGF0Y2goJ3JlcXVlc3RzLzppZC9yZWplY3QnKSByZWplY3QoQFBhcmFtKCdpZCcpIGlkOiBzdHJpbmcsIEBCb2R5KCdhcHByb3ZlZEJ5SWQnKSBhcHByb3ZlZEJ5SWQ6IHN0cmluZykgeyByZXR1cm4gdGhpcy5jdXN0b2R5LnJlamVjdFJlcXVlc3QoaWQsIGFwcHJvdmVkQnlJZCk7IH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

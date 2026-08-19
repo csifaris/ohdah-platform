@@ -1,0 +1,4 @@
+import { X } from 'lucide-react';
+import type { User } from '../types';
+import { UserStatusBadge } from './UserStatusBadge';
+export function UserDetailsDrawer({ user, onClose }: { user?: User; onClose: () => void }) { if (!user) return null; return <aside className="fixed inset-y-0 left-0 z-50 w-full max-w-md overflow-y-auto bg-white p-6 shadow-xl" dir="rtl"><div className="flex items-start justify-between"><div><p className="text-sm text-primary">تفاصيل المستخدم</p><h2 className="mt-1 text-xl font-bold">{user.name}</h2></div><button aria-label="إغلاق" onClick={onClose} type="button"><X size={18} /></button></div><div className="mt-6 space-y-4 text-sm"><p><span className="text-muted">البريد: </span>{user.email}</p><p><span className="text-muted">القسم: </span>{user.department}</p><p><span className="text-muted">الدور: </span>{user.role}</p><UserStatusBadge status={user.status} /></div></aside>; }

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ohdah | بوابة الموظف</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#dce1ff",
+                        "tertiary-container": "#314156",
+                        "secondary": "#006c49",
+                        "on-background": "#191c1e",
+                        "inverse-surface": "#2d3133",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-secondary-container": "#00714d",
+                        "primary-container": "#1e3a8a",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-tertiary-container": "#9dadc6",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container": "#eceef0",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#005236",
+                        "outline": "#757682",
+                        "surface-dim": "#d8dadc",
+                        "surface-tint": "#4059aa",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-error-container": "#93000a",
+                        "on-primary-container": "#90a8ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#444651",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "error": "#ba1a1a",
+                        "tertiary": "#1b2b3f",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "surface-bright": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e0e3e5",
+                        "outline-variant": "#c5c5d3",
+                        "on-secondary-fixed": "#002113",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary": "#00236f",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-high": "#e6e8ea",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#6cf8bb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "4px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "stack-md": "12px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-inverse-surface shadow-md fixed right-0 top-0 h-full w-64 rounded-l-xl flex flex-col z-40 border-l border-outline-variant hidden md:flex">
+<div class="p-margin-desktop flex flex-col items-center border-b border-outline-variant">
+<div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mb-stack-md shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 32px; font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary dark:text-primary-fixed">عُهدة</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-stack-sm">إدارة الأصول</p>
+</div>
+<div class="flex-1 overflow-y-auto py-stack-lg flex flex-col gap-stack-sm">
+<!-- Active Tab -->
+<a class="bg-primary-container dark:bg-primary-fixed-variant text-on-primary-container dark:text-on-primary-fixed rounded-lg mx-2 flex items-center px-4 py-3 opacity-80 scale-95 duration-150 group" href="#">
+<span class="material-symbols-outlined ml-3" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-caps text-label-caps font-semibold">الرئيسية</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">inventory_2</span>
+<span class="font-label-caps text-label-caps">عهدتي</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">add_box</span>
+<span class="font-label-caps text-label-caps">طلب عهدة جديدة</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">list_alt</span>
+<span class="font-label-caps text-label-caps">طلباتي</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">notifications</span>
+<span class="font-label-caps text-label-caps">الإشعارات</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">description</span>
+<span class="font-label-caps text-label-caps">المحاضر</span>
+</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary mx-2 flex items-center px-4 py-3 hover:bg-surface-container-high dark:hover:bg-tertiary-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">person</span>
+<span class="font-label-caps text-label-caps">الملف الشخصي</span>
+</a>
+</div>
+<div class="p-margin-desktop border-t border-outline-variant">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-error mx-2 flex items-center px-4 py-3 hover:bg-error-container transition-all rounded-lg group" href="#">
+<span class="material-symbols-outlined ml-3">logout</span>
+<span class="font-label-caps text-label-caps">تسجيل الخروج</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col md:mr-64 w-full h-full overflow-hidden">
+<!-- Top Header -->
+<header class="bg-surface-container-lowest border-b border-outline-variant h-20 px-margin-desktop flex items-center justify-between shrink-0 z-30">
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">بوابة الموظف</h2>
+<div class="flex items-center gap-gutter">
+<div class="relative w-64 hidden sm:block">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-outline-variant text-on-surface rounded-full py-2 pr-10 pl-4 focus:ring-primary focus:border-primary font-body-sm text-body-sm" placeholder="البحث..." type="text"/>
+</div>
+<button class="relative p-2 text-on-surface-variant hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="flex items-center gap-stack-sm cursor-pointer hover:bg-surface-container p-2 rounded-lg transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional corporate headshot of a Middle Eastern male employee in a modern light-filled office space. He is wearing a crisp white shirt. Soft, natural lighting highlights his features against a slightly blurred background of glass partitions, embodying a trustworthy and competent corporate persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTxujnPk7AyQbpjAmfgTpO-mHLuGuLMEVBLtOnkfviUcOrqef9GOR0AUhF0wjUaEJEU_Aix0u9dNRDgqevUh7e_VN6Vxuw7wmxfV_bPSvtmx1PJqoknXgQ6YWhcePekzpEKO2o8qJXHvGAJ3UT_VWmF6q4BeSGM-tLiyAQLhQkxvAIbjOrzNNfKu1wUHpoAH__dgVZQm_HpvfFFfwQit4Dm9QHTQHeHI672OO7E3khQ2XihMcfb--2"/>
+<div class="hidden md:block">
+<p class="font-title-md text-title-md text-on-surface">أحمد محمد</p>
+<p class="font-body-sm text-body-sm text-outline text-right">موظف</p>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 overflow-y-auto p-margin-desktop bg-background">
+<div class="max-w-7xl mx-auto flex flex-col gap-stack-lg">
+<!-- 1. Welcome Banner -->
+<section class="bg-gradient-to-r from-primary to-primary-container rounded-xl p-margin-desktop text-on-primary shadow-md relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-stack-lg">
+<!-- Subtle background pattern -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-display-lg font-bold mb-stack-sm">مرحباً أحمد محمد</h2>
+<p class="font-title-md text-title-md opacity-90">تابع عهدك وطلباتك من خلال بوابة عُهدة</p>
+</div>
+<button class="relative z-10 bg-surface-container-lowest text-primary hover:bg-surface transition-colors font-title-md text-title-md py-3 px-6 rounded-lg flex items-center gap-stack-sm shadow-sm whitespace-nowrap">
+<span class="material-symbols-outlined">add</span>
+                        طلب عهدة جديدة
+                    </button>
+</section>
+<!-- 2. KPI Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-title-md text-title-md text-on-surface-variant">العهد الحالية</h3>
+<div class="w-10 h-10 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+</div>
+<p class="font-display-lg text-display-lg text-on-surface font-bold">5</p>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-title-md text-title-md text-on-surface-variant">الطلبات النشطة</h3>
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">hourglass_empty</span>
+</div>
+</div>
+<p class="font-display-lg text-display-lg text-on-surface font-bold">2</p>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-title-md text-title-md text-on-surface-variant">العهد المستلمة</h3>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<p class="font-display-lg text-display-lg text-on-surface font-bold">8</p>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-stack-lg shadow-sm border border-outline-variant hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-stack-md">
+<h3 class="font-title-md text-title-md text-on-surface-variant">التنبيهات</h3>
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<p class="font-display-lg text-display-lg text-on-surface font-bold">3</p>
+</div>
+</section>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Left Column (Main Content) -->
+<div class="xl:col-span-2 flex flex-col gap-stack-lg">
+<!-- 3. My Custodies Grid -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg shadow-sm">
+<div class="flex justify-between items-center mb-stack-lg border-b border-outline-variant pb-stack-sm">
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface">عهدتي الحالية</h3>
+<button class="text-primary hover:text-primary-container font-title-md text-title-md flex items-center gap-1 transition-colors">
+                                    عرض الكل <span class="material-symbols-outlined text-sm">arrow_back</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- Asset Card 1 -->
+<div class="border border-outline-variant rounded-lg p-stack-md hover:shadow-md transition-shadow bg-surface">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 28px;">laptop_mac</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">MacBook Pro M2</h4>
+<p class="font-body-sm text-body-sm text-outline">AST-2026-005</p>
+</div>
+</div>
+<span class="bg-secondary/10 text-secondary px-2 py-1 rounded font-label-caps text-label-caps whitespace-nowrap">نشط</span>
+</div>
+<div class="text-outline font-body-sm text-body-sm mb-stack-md">
+                                        تاريخ الاستلام: 15 مارس 2023
+                                    </div>
+<div class="flex gap-stack-sm">
+<button class="flex-1 bg-surface-container-lowest border border-primary text-primary hover:bg-primary-fixed transition-colors font-title-md text-body-sm py-2 rounded">
+                                            عرض التفاصيل
+                                        </button>
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-title-md text-body-sm py-2 rounded">
+                                            طلب صيانة
+                                        </button>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="border border-outline-variant rounded-lg p-stack-md hover:shadow-md transition-shadow bg-surface">
+<div class="flex justify-between items-start mb-stack-sm">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container-highest rounded-lg flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-size: 28px;">smartphone</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface font-semibold">iPhone 14 Pro</h4>
+<p class="font-body-sm text-body-sm text-outline">AST-2026-012</p>
+</div>
+</div>
+<span class="bg-secondary/10 text-secondary px-2 py-1 rounded font-label-caps text-label-caps whitespace-nowrap">نشط</span>
+</div>
+<div class="text-outline font-body-sm text-body-sm mb-stack-md">
+                                        تاريخ الاستلام: 10 أبريل 2023
+                                    </div>
+<div class="flex gap-stack-sm">
+<button class="flex-1 bg-surface-container-lowest border border-primary text-primary hover:bg-primary-fixed transition-colors font-title-md text-body-sm py-2 rounded">
+                                            عرض التفاصيل
+                                        </button>
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors font-title-md text-body-sm py-2 rounded">
+                                            طلب صيانة
+                                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. My Requests Table -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg shadow-sm overflow-hidden">
+<div class="flex justify-between items-center mb-stack-lg border-b border-outline-variant pb-stack-sm">
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface">قائمة الطلبات الأخيرة</h3>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-caps text-label-caps border-y border-outline-variant">
+<th class="py-3 px-4 font-semibold">رقم الطلب</th>
+<th class="py-3 px-4 font-semibold">نوع العهدة</th>
+<th class="py-3 px-4 font-semibold">التاريخ</th>
+<th class="py-3 px-4 font-semibold">الحالة</th>
+<th class="py-3 px-4 font-semibold text-center">الإجراء</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm">
+<tr class="border-b border-outline-variant hover:bg-surface transition-colors">
+<td class="py-3 px-4 text-on-surface">REQ-1092</td>
+<td class="py-3 px-4 text-on-surface">شاشة عرض Dell 27"</td>
+<td class="py-3 px-4 text-outline">12 مايو 2024</td>
+<td class="py-3 px-4">
+<span class="bg-primary-fixed/50 text-primary px-2 py-1 rounded font-label-caps text-label-caps whitespace-nowrap">قيد الموافقة</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-surface transition-colors">
+<td class="py-3 px-4 text-on-surface">REQ-1085</td>
+<td class="py-3 px-4 text-on-surface">لوحة مفاتيح لاسلكية</td>
+<td class="py-3 px-4 text-outline">05 مايو 2024</td>
+<td class="py-3 px-4">
+<span class="bg-secondary/10 text-secondary px-2 py-1 rounded font-label-caps text-label-caps whitespace-nowrap">موافق عليه</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface transition-colors">
+<td class="py-3 px-4 text-on-surface">REQ-1040</td>
+<td class="py-3 px-4 text-on-surface">سيارة شركة</td>
+<td class="py-3 px-4 text-outline">20 أبريل 2024</td>
+<td class="py-3 px-4">
+<span class="bg-error/10 text-error px-2 py-1 rounded font-label-caps text-label-caps whitespace-nowrap">مرفوض</span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-primary-fixed transition-colors">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column (Sidebar Widgets) -->
+<div class="xl:col-span-1 flex flex-col gap-stack-lg">
+<!-- 6. Quick Actions -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg shadow-sm">
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-stack-md border-b border-outline-variant pb-stack-sm">إجراءات سريعة</h3>
+<div class="grid grid-cols-1 gap-stack-md">
+<button class="flex items-center gap-3 p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed/30 transition-all text-right group">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">report_problem</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">الإبلاغ عن مشكلة</p>
+<p class="font-body-sm text-body-sm text-outline">تقديم بلاغ صيانة أو فقدان</p>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed/30 transition-all text-right group">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">folder_special</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">استعراض المحاضر</p>
+<p class="font-body-sm text-body-sm text-outline">محاضر الاستلام والتسليم</p>
+</div>
+</button>
+<button class="flex items-center gap-3 p-4 rounded-lg border border-outline-variant hover:border-primary hover:bg-primary-fixed/30 transition-all text-right group">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<p class="font-title-md text-title-md text-on-surface">تواصل مع الإدارة</p>
+<p class="font-body-sm text-body-sm text-outline">الدعم الفني وإدارة الأصول</p>
+</div>
+</button>
+</div>
+</section>
+<!-- 5. Recent Notifications -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg shadow-sm flex-1">
+<h3 class="font-headline-lg text-headline-lg-mobile text-on-surface mb-stack-md border-b border-outline-variant pb-stack-sm flex justify-between items-center">
+                                 أحدث التنبيهات
+                                 <span class="bg-error text-on-error text-[10px] px-2 py-0.5 rounded-full font-bold">3 جديد</span>
+</h3>
+<div class="flex flex-col gap-4">
+<!-- Notification Item 1 -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer border-r-4 border-primary">
+<div class="mt-1 text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">info</span>
+</div>
+<div>
+<p class="font-title-md text-body-sm text-on-surface font-semibold">تحديث حالة الطلب</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">تمت الموافقة المبدئية على طلب الشاشة Dell 27"، بانتظار الاعتماد النهائي.</p>
+<p class="font-label-caps text-[10px] text-outline mt-2">منذ ساعتين</p>
+</div>
+</div>
+<!-- Notification Item 2 -->
+<div class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-1 text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<div>
+<p class="font-title-md text-body-sm text-on-surface font-semibold">استلام عهدة بنجاح</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">تم تسجيل استلامك للمحمول MacBook Pro M2 في النظام.</p>
+<p class="font-label-caps text-[10px] text-outline mt-2">أمس</p>
+</div>
+</div>
+<!-- Notification Item 3 -->
+<div class="flex items-start gap-3 p-3 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="mt-1 text-error">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<div>
+<p class="font-title-md text-body-sm text-on-surface font-semibold">تذكير: تحديث بيانات الجرد</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">يرجى تأكيد وجود العهد المسجلة باسمك للفترة الحالية.</p>
+<p class="font-label-caps text-[10px] text-outline mt-2">منذ 3 أيام</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-stack-lg text-primary hover:text-primary-container font-title-md text-title-md text-center py-2 border border-transparent hover:border-outline-variant rounded transition-all">
+                                 عرض كل التنبيهات
+                             </button>
+</section>
+</div>
+</div>
+</div>
+<!-- Minimal Footer -->
+<footer class="mt-stack-lg py-stack-lg border-t border-outline-variant text-center text-outline font-body-sm text-body-sm">
+<p>© 2024 عُهدة | Ohdah. جميع الحقوق محفوظة.</p>
+</footer>
+</main>
+</div>
+</body></html>

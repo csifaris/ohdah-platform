@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ohdah - الإشعارات</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#1b2b3f",
+                        "surface-container": "#eceef0",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed": "#dce1ff",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary": "#00236f",
+                        "surface-dim": "#d8dadc",
+                        "inverse-surface": "#2d3133",
+                        "inverse-primary": "#b6c4ff",
+                        "on-primary-fixed-variant": "#264191",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "secondary-fixed": "#6ffbbe",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#9dadc6",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-container": "#90a8ff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#314156",
+                        "surface-variant": "#e0e3e5",
+                        "on-error-container": "#93000a",
+                        "background": "#f7f9fb",
+                        "on-surface-variant": "#444651",
+                        "on-secondary-container": "#00714d",
+                        "primary-container": "#1e3a8a",
+                        "outline-variant": "#c5c5d3",
+                        "secondary-container": "#6cf8bb",
+                        "outline": "#757682",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface": "#f7f9fb",
+                        "on-primary-fixed": "#00164e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint": "#4059aa",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed": "#002113",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#006c49"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "12px",
+                        "margin-desktop": "32px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "stack-sm": "4px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "title-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "body-sm": ["Inter", "sans-serif"],
+                        "label-caps": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg overflow-x-hidden min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col fixed right-0 top-0 h-full z-40 border-l border-outline-variant bg-surface-container-lowest shadow-md w-64 rounded-l-xl transition-all duration-300">
+<div class="p-6 border-b border-surface-container-high flex flex-col items-center">
+<div class="w-16 h-16 bg-primary-container rounded-xl flex items-center justify-center mb-4 text-on-primary-container">
+<span class="material-symbols-outlined text-4xl">domain</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary text-center">عُهدة</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-center mt-1">إدارة الأصول</p>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<ul class="space-y-2 px-2">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-label-caps text-label-caps">لوحة القيادة</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">inventory_2</span>
+<span class="font-label-caps text-label-caps">العهد</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">precision_manufacturing</span>
+<span class="font-label-caps text-label-caps">الأصول</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">badge</span>
+<span class="font-label-caps text-label-caps">الموظفون</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">handshake</span>
+<span class="font-label-caps text-label-caps">التسليم والاستلام</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">analytics</span>
+<span class="font-label-caps text-label-caps">التقارير</span>
+</a>
+</li>
+<!-- Active Item -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container rounded-lg mx-2 translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined fill">notifications</span>
+<span class="font-label-caps text-label-caps">الإشعارات</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">group_add</span>
+<span class="font-label-caps text-label-caps">المستخدمون والصلاحيات</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-all mx-2 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="font-label-caps text-label-caps">الإعدادات</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="p-4 border-t border-surface-container-high">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-error hover:bg-error-container transition-all mx-2" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-caps text-label-caps">تسجيل الخروج</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:mr-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-surface border-b border-outline-variant shadow-sm h-20 w-full sticky top-0 z-30">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4 flex-row-reverse">
+<button class="w-10 h-10 rounded-full bg-surface-container-lowest border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-error rounded-full"></span>
+</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">help</span>
+                        Help
+                    </button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border-2 border-surface-container-high cursor-pointer hover:border-primary transition-colors">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional corporate headshot of a Middle Eastern executive against a clean white background, high-key lighting, soft shadows, 8k resolution, photorealistic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpu8-8B6wrq08PG7oom_WyOEPJ7bcM7QXDss70Gx8_h0Wk48f3UCs68JKSp2YpUJpNPUQuBaa-ERIoc1TEJHykgaajV26FX9off9JkNUCR5oTPTpHwJeSZcFWuKu_vCsszxw40CWy1pERU5edjIkrvYjtPp5Bs9g5zx1YVRIL1B7ZEV5aBanixna3Q7wGEjNasyoCZRVHXUAKmFZODMCq2MFGulwQIkM1m4cNtsRZrmWwNKTKugeVW"/>
+</div>
+</div>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-full px-4 py-2 w-96 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-outline ml-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-full p-0 text-on-surface placeholder:text-outline-variant text-right" dir="rtl" placeholder="بحث..." type="text"/>
+</div>
+<div class="flex items-center md:hidden">
+<span class="font-display-lg text-display-lg text-primary text-2xl">Ohdah</span>
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop max-w-container-max mx-auto w-full flex flex-col xl:flex-row gap-gutter">
+<!-- Left Column (Main Notification List) -->
+<div class="flex-1 flex flex-col gap-stack-lg">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-1">الإشعارات</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">متابعة جميع التنبيهات والتحديثات الخاصة بالنظام</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">done_all</span>
+                            تحديد الكل كمقروء
+                        </button>
+</div>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_-3px_rgba(30,58,138,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">إجمالي الإشعارات</span>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">notifications</span>
+</div>
+</div>
+<div class="font-title-md text-title-md text-on-surface text-3xl">156</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_-3px_rgba(30,58,138,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">غير مقروء</span>
+<div class="w-8 h-8 rounded-full bg-primary-fixed text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">mark_email_unread</span>
+</div>
+</div>
+<div class="font-title-md text-title-md text-primary text-3xl">24</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-error-container shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_-3px_rgba(30,58,138,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">عُهد متأخرة</span>
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">warning</span>
+</div>
+</div>
+<div class="font-title-md text-title-md text-error text-3xl">12</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_-3px_rgba(30,58,138,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">بانتظار الاعتماد</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">pending_actions</span>
+</div>
+</div>
+<div class="font-title-md text-title-md text-on-surface text-3xl">8</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex overflow-x-auto pb-2 gap-2 hide-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps shadow-sm">الكل</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">غير مقروء</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">مهم</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">العهد</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">الصيانة</button>
+</div>
+<!-- Notification List -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+<!-- Item 1: Unread, Primary Action -->
+<div class="p-4 border-b border-surface-container flex gap-4 hover:bg-surface-container-low transition-colors cursor-pointer relative bg-primary-fixed/20">
+<div class="w-2 h-full bg-primary absolute right-0 top-0"></div>
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined fill">person_add</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface text-base">طلب عهدة جديد</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">منذ 10 دقائق</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-sm mb-2">أحمد محمد قدم طلب عهدة لابتوب</p>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary-fixed text-primary">طلب رقم: REQ-001</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-6">
+<div class="w-2.5 h-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+<!-- Item 2: Overdue, Warning -->
+<div class="p-4 border-b border-surface-container flex gap-4 hover:bg-surface-container-low transition-colors cursor-pointer relative">
+<div class="w-10 h-10 rounded-full bg-error-container text-error flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined fill">schedule</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface text-base">عهدة متأخرة</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">منذ ساعتين</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-sm mb-2">العهدة OH-000126 تجاوزت موعد الإرجاع</p>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-error-container text-error">إجراء مطلوب</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-6"></div>
+</div>
+<!-- Item 3: Success -->
+<div class="p-4 border-b border-surface-container flex gap-4 hover:bg-surface-container-low transition-colors cursor-pointer relative">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-secondary flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined fill">check_circle</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface text-base text-on-surface-variant">تم اعتماد الطلب</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">منذ 5 ساعات</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-sm mb-2">تم اعتماد طلب العهدة REQ-000125</p>
+</div>
+<div class="flex items-center justify-center w-6"></div>
+</div>
+<!-- Item 4: Maintenance -->
+<div class="p-4 flex gap-4 hover:bg-surface-container-low transition-colors cursor-pointer relative">
+<div class="w-10 h-10 rounded-full bg-tertiary-container text-tertiary-fixed-dim flex items-center justify-center shrink-0 mt-1">
+<span class="material-symbols-outlined fill">build</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-title-md text-title-md text-on-surface text-base text-on-surface-variant">أصل يحتاج صيانة</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">أمس</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-sm mb-2">MacBook Pro M2 يحتاج فحص دوري</p>
+<div class="flex gap-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-surface-container text-on-surface-variant">صيانة وقائية</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-6"></div>
+</div>
+</div>
+</div>
+<!-- Right Column (Drawer Preview & Settings) -->
+<div class="w-full xl:w-96 flex flex-col gap-stack-lg shrink-0">
+<!-- Notification Detail Drawer (In-page preview for this design) -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col sticky top-28">
+<div class="bg-primary-container p-4 flex justify-between items-center text-on-primary-container">
+<h3 class="font-title-md text-title-md text-base">تفاصيل الإشعار</h3>
+<button class="hover:bg-primary-fixed-variant/20 rounded-full p-1 transition-colors">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4">
+<div class="flex items-start gap-4 border-b border-surface-container pb-4">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl fill">person_add</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-1">طلب عهدة جديد</h4>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                                    12 أكتوبر 2023, 10:30 صباحاً
+                                </span>
+</div>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface mb-4">لقد قام الموظف أحمد محمد بتقديم طلب جديد للحصول على عهدة. يرجى مراجعة الطلب واتخاذ الإجراء المناسب.</p>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/30 flex flex-col gap-2">
+<h5 class="font-label-caps text-label-caps text-on-surface-variant mb-1 border-b border-outline-variant/20 pb-1">معلومات الطلب</h5>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">رقم الطلب:</span>
+<span class="font-body-sm text-body-sm text-on-surface font-semibold">REQ-00125</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الأصل المطلوب:</span>
+<span class="font-body-sm text-body-sm text-on-surface">Laptop MacBook Pro M2</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">الموظف:</span>
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-surface-container overflow-hidden">
+<img alt="Employee Avatar" class="w-full h-full object-cover" data-alt="A small circular avatar portrait of a young Arab professional male, clean background, corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVYBht2vcV4n6BUypqu75XkYQ7hDuwJuB6Xa5XTdou767eDck8YyDbXnwrejZ0yTPsPvAr1pREa6h_f12CDUYSvITdyz87dnEKfs7tpnn_576_NO-6mx7ytA9MPwJMxgNpcm-dlNQlGQlQUhvwwcOIXk-Joyr9SPfP2iSIPiJZXgO7xt6YtoiS0DuwLCPgmtpeL4-JHFsBKRQsrt9FbtKgqxbiD9MNFm6CxQb8zVRD1lT_z1A29fGa"/>
+</div>
+<span class="font-body-sm text-body-sm text-primary hover:underline cursor-pointer">أحمد محمد</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-surface-container bg-surface-container-lowest flex flex-col gap-2">
+<button class="w-full bg-primary text-on-primary py-2.5 rounded-lg font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+                            اعتماد الطلب
+                        </button>
+<div class="flex gap-2">
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant text-on-surface-variant py-2.5 rounded-lg font-label-caps text-label-caps hover:bg-surface-container-low transition-colors">
+                                فتح الطلب
+                            </button>
+<button class="flex-1 bg-error-container border border-error/20 text-error py-2.5 rounded-lg font-label-caps text-label-caps hover:bg-error hover:text-on-error transition-colors">
+                                رفض
+                            </button>
+</div>
+</div>
+</div>
+<!-- Settings Preview Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-5">
+<div class="flex items-center gap-2 mb-4 border-b border-surface-container pb-3">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+<h3 class="font-title-md text-title-md text-on-surface text-base">إعدادات التنبيهات</h3>
+</div>
+<div class="flex flex-col gap-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface text-sm font-medium">إشعارات النظام</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">تلقي التنبيهات داخل المنصة</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface text-sm font-medium">إشعارات البريد الإلكتروني</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">إرسال ملخص يومي للبريد</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface text-sm font-medium">تنبيهات التأخير المهمة</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">تنبيهات فورية للعهد المتأخرة</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
