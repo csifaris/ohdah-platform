@@ -1,11 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root { font-family: Inter, Tahoma, Arial, sans-serif; color: #191c1e; background: #f7f9fb; font-synthesis: none; text-rendering: optimizeLegibility; }
+:root {
+  --ohdah-navy: #071426;
+  --ohdah-gold: #D4AF37;
+  --ohdah-blue: #062B78;
+  --ohdah-bg: #F8FAFC;
+  --ohdah-border: #D9E2EC;
+  --font-display: 'Noto Kufi Arabic', 'Cairo', Arial, sans-serif;
+  --font-data: 'IBM Plex Sans Arabic', 'Noto Kufi Arabic', Arial, sans-serif;
+  font-family: var(--font-data);
+  color: #071426;
+  background-color: var(--ohdah-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
 * { box-sizing: border-box; }
-body { margin: 0; min-width: 320px; min-height: 100vh; background: #f7f9fb; }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #F8FAFC;
+  color: #071426;
+}
+
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
-::selection { background: #dce1ff; color: #00164e; }
+::selection { background: #D4AF37; color: #071426; }
+
+@layer base {
+  h1, h2, h3, h4, h5, h6, nav, [data-font="display"] {
+    font-family: var(--font-display);
+    color: #071426;
+  }
+  table, input, select, textarea, [data-font="data"] {
+    font-family: var(--font-data);
+  }
+}
+
+@layer utilities {
+  /* Color overrides for legacy references */
+  .bg-indigo-50, .bg-indigo-100, .bg-indigo-200 { background-color: #F1F5F9; }
+  .text-indigo-700, .text-indigo-800, .text-indigo-900 { color: #062B78; }
+  .border-indigo-200 { border-color: #D9E2EC; }
+  .bg-amber-50, .bg-amber-100 { background-color: #FFF7E0; }
+  .text-amber-700, .text-amber-800 { color: #B7791F; }
+  .bg-emerald-50, .bg-emerald-100 { background-color: #ECFDF5; }
+  .text-emerald-700, .text-emerald-800 { color: #059669; }
+  .bg-purple-100 { background-color: #F1F5F9; }
+  .text-purple-700 { color: #062B78; }
+}

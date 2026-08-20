@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post, Query, Req } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Req } from '@nestjs/common';
 import type { Request } from 'express';
 import { CustodyRequestStatus, CustodyStatus } from '@prisma/client';
 import { CustodyService } from './custody.service';
@@ -15,5 +15,7 @@ export class CustodyController {
   @Get('requests') requests(@Query('organizationId') organizationId: string, @Query('status') status?: CustodyRequestStatus) { return this.custody.findRequests(organizationId, status); }
   @Post('requests') createRequest(@Body() dto: CreateCustodyRequestDto) { return this.custody.createRequest(dto); }
   @Patch('requests/:id/approve') approve(@Param('id') id: string, @Req() request: Request & { user: { sub: string } }) { return this.custody.approveRequest(id, request.user.sub); }
-  @Patch('requests/:id/reject') reject(@Param('id') id: string, @Req() request: Request & { user: { sub: string } }) { return this.custody.rejectRequest(id, request.user.sub); }
+  @Patch('requests/:id/reject') reject(@Param('id') id: string, @Req() request: Request & { user: { sub: string } }, @Body('rejectionReason') rejectionReason?: string) { return this.custody.rejectRequest(id, request.user.sub, rejectionReason); }
+  @Patch('requests/:id/reply') reply(@Param('id') id: string, @Body('employeeReply') employeeReply: string) { return this.custody.replyRequest(id, employeeReply); }
+  @Delete('requests/:id') deleteRequest(@Param('id') id: string) { return this.custody.deleteRequest(id); }
 }

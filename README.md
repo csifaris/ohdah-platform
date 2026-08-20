@@ -8,12 +8,19 @@ Ohdah is an Arabic RTL asset and custody management platform. The repository con
 - PostgreSQL 14+
 - npm
 
-## Development
+## Running the project
 
-Frontend:
+Clone project
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start full system:
+
+```bash
 npm run dev
 ```
 

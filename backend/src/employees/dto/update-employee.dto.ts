@@ -1,2 +1,2 @@
 import { IsEmail, IsOptional, IsString, IsUUID } from 'class-validator';
-export class UpdateEmployeeDto { @IsOptional() @IsUUID() departmentId?: string; @IsOptional() @IsString() name?: string; @IsOptional() @IsEmail() email?: string; @IsOptional() @IsString() phone?: string; @IsOptional() @IsString() jobTitle?: string; @IsOptional() @IsString() status?: string; }
+export class UpdateEmployeeDto { @IsOptional() @IsUUID() departmentId?: string; @IsOptional() @IsString() departmentName?: string; @IsOptional() @IsString() name?: string; @IsOptional() @IsEmail() email?: string; @IsOptional() @IsString() phone?: string; @IsOptional() @IsString() jobTitle?: string; @IsOptional() @IsString() status?: string; @IsOptional() @IsString() avatar?: string; }

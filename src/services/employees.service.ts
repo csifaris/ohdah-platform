@@ -16,12 +16,17 @@ function mapEmployee(employee: ApiEmployee): Employee {
     lastHandover: employee.lastHandover || '—',
     status: status === 'active' ? 'active' : status === 'inactive' ? 'inactive' : 'on_leave',
     phone: employee.phone || '—',
+    avatar: employee.avatar,
   };
 }
 
 export async function listEmployees(search?: string, departmentId?: string) {
   const { data } = await api.get<ApiEmployee[]>('/employees', { params: { organizationId: getOrganizationId(), search, departmentId } });
   return data.map(mapEmployee);
+}
+export async function updateEmployee(id: string, payload: Record<string, unknown>) {
+  const { data } = await api.patch<Employee>(`/employees/${id}`, payload);
+  return data;
 }
 export async function createEmployee(payload: Record<string, unknown>) { const { data } = await api.post<ApiEmployee>('/employees', { organizationId: getOrganizationId(), ...payload }); return mapEmployee(data); }
 

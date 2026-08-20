@@ -9,7 +9,7 @@ import { UpdateAssetDto } from './dto/update-asset.dto';
 export class AssetsController {
   constructor(private readonly assets: AssetsService) {}
   @Post() create(@Body() dto: CreateAssetDto) { return this.assets.create(dto); }
-  @Get() findAll(@Query('organizationId') organizationId: string, @Query('search') search?: string, @Query('status') status?: AssetStatus) { return this.assets.findAll(organizationId, search, status); }
+  @Get() findAll(@Query('organizationId') organizationId: string, @Query('search') search?: string, @Query('status') status?: AssetStatus, @Query('category') category?: string, @Query('categoryId') categoryId?: string) { return this.assets.findAll(organizationId, search, status, category || categoryId); }
   @Get('categories') categories(@Query('organizationId') organizationId: string) { return this.assets.findCategories(organizationId); }
   @Post('categories') createCategory(@Body() dto: CreateAssetCategoryDto) { return this.assets.createCategory(dto); }
   @Get(':id') findOne(@Param('id') id: string) { return this.assets.findOne(id); }

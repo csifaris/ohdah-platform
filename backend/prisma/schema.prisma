@@ -190,6 +190,7 @@ model Asset {
   currentValue   Decimal?     @db.Decimal(14, 2)
   currency       String       @default("SAR")
   location       String?
+  image          String?      @db.Text
   warrantyEnd    DateTime?
   custodyRecords CustodyRecord[]
   custodyRequests CustodyRequest[]
@@ -214,6 +215,7 @@ model Employee {
   email          String
   phone          String?
   jobTitle       String?
+  avatar         String?      @db.Text
   status         String       @default("ACTIVE")
   custodyRecords CustodyRecord[]
   custodyRequests CustodyRequest[]
@@ -278,8 +280,11 @@ model CustodyRequest {
   approvedById   String?             @db.Uuid
   approvedBy     User?               @relation("CustodyRequestApprover", fields: [approvedById], references: [id], onDelete: SetNull)
   reviewedAt     DateTime?
-  createdAt      DateTime            @default(now())
-  updatedAt      DateTime            @updatedAt
+  rejectionReason String?     @db.Text
+  employeeReply   String?     @db.Text
+  repliedAt       DateTime?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
 
   @@index([organizationId, status])
   @@index([requesterId])
@@ -289,8 +294,9 @@ model MaintenanceRequest {
   id             String       @id @default(uuid()) @db.Uuid
   organizationId String       @db.Uuid
   organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
-  assetId        String       @db.Uuid
-  asset          Asset        @relation(fields: [assetId], references: [id], onDelete: Restrict)
+  assetId        String?      @db.Uuid
+  asset          Asset?       @relation(fields: [assetId], references: [id], onDelete: SetNull)
+  assetType      String?
   requestedById  String?      @db.Uuid
   requestedBy    Employee?    @relation(fields: [requestedById], references: [id], onDelete: SetNull)
   issue          String
