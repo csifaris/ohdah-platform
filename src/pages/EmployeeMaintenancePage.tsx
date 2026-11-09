@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FileWarning, Wrench } from 'lucide-react';
 import { MaintenanceTable, type MaintenanceRequest } from '../features/maintenance';
 import { listMaintenance, deleteMaintenance } from '../services/maintenance.service';
@@ -14,7 +14,7 @@ export function EmployeeMaintenancePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  const fetchRequests = () => {
+  const fetchRequests = useCallback(() => {
     if (!employee) return;
     setLoading(true);
     listMaintenance()
@@ -23,11 +23,11 @@ export function EmployeeMaintenancePage() {
       })
       .catch((err) => setError(getApiErrorMessage(err)))
       .finally(() => setLoading(false));
-  };
+  }, [employee]);
 
   useEffect(() => {
     fetchRequests();
-  }, [employee]);
+  }, [fetchRequests]);
 
   const handleDelete = async (id: string) => {
     if (!confirm('هل أنت متأكد من حذف طلب الصيانة هذا؟')) return;

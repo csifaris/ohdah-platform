@@ -5,6 +5,10 @@ const prisma = new PrismaClient();
 const organizationId = '11111111-1111-4111-8111-111111111111';
 
 async function main() {
+  if (process.env.NODE_ENV === 'production') {
+    console.error('⛔ خطأ أمني: تشغيل سكريبت Seed محظور تماماً في بيئة الإنتاج (Production).');
+    process.exit(1);
+  }
   console.log('Seeding Ohdah Database...');
 
   // ==========================
@@ -164,7 +168,6 @@ async function main() {
     },
     update: {
       name: 'مدير النظام',
-      passwordHash: adminPassword,
       status: 'ACTIVE',
       departmentId: department.id,
     },
@@ -197,7 +200,6 @@ async function main() {
     },
     update: {
       name: 'مسؤول العهد والأصول',
-      passwordHash: managerPassword,
       status: 'ACTIVE',
       departmentId: department.id,
     },
@@ -345,7 +347,6 @@ async function main() {
       },
       update: {
         name: emp.name,
-        passwordHash: employeePassword,
         status: 'ACTIVE',
       },
       create: {
@@ -398,7 +399,7 @@ async function main() {
 
 🔑 Asset Manager:
    Email: asset.manager@ohdah.local
-   Password: manager123
+   Password: ChangeMe123!
 
 🔑 Employee:
    Email: employee1@ohdah.local

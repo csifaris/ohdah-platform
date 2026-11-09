@@ -1,4 +1,4 @@
-﻿import { ConflictException, Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -49,14 +49,21 @@ export class UsersService {
       }),
       this.prisma.user.count({ where }),
     ]);
-    return { items, pagination: { page, limit, total, pages: Math.ceil(total / limit) } };
+    const sanitizedItems = items.map((u) => {
+      const copy = { ...u } as Partial<typeof u>;
+      delete copy.passwordHash;
+      return copy;
+    });
+    return { items: sanitizedItems, pagination: { page, limit, total, pages: Math.ceil(total / limit) } };
   }
 
   async findOne(organizationId: string, id: string) {
     const user = await this.prisma.user.findFirst({ where: { id, organizationId }, include: this.include });
     if (!user) throw new NotFoundException('المستخدم غير موجود.');
     const employee = await this.prisma.employee.findFirst({ where: { organizationId, email: user.email }, include: { department: true } });
-    return { ...user, employee };
+    const userCopy = { ...user } as Partial<typeof user>;
+    delete userCopy.passwordHash;
+    return { ...userCopy, employee };
   }
 
   async create(organizationId: string, dto: CreateUserDto) {
@@ -230,6 +237,28 @@ export class UsersService {
   }
 
   async softDelete(organizationId: string, id: string) {
-    return this.remove(organizationId, id);
+    const user = await this.prisma.user.findFirst({
+      where: { id, organizationId },
+      include: { roles: { include: { role: true } } },
+    });
+    if (!user) {
+      throw new NotFoundException('المستخدم غير موجود.');
+    }
+    const roleNames = user.roles.map((r) => r.role.name.toUpperCase());
+    if (roleNames.some((n) => ['ADMIN', 'SUPER_ADMIN'].includes(n))) {
+      throw new BadRequestException('لا يمكن تعطيل حساب مسؤول النظام.');
+    }
+    await this.prisma.user.update({
+      where: { id: user.id },
+      data: { status: UserStatus.INACTIVE },
+    });
+    await this.prisma.employee.updateMany({
+      where: { organizationId, email: user.email },
+      data: { status: 'INACTIVE' },
+    });
+    return {
+      message: 'User deactivated successfully',
+      arabicMessage: 'تم تعطيل حساب المستخدم بنجاح.',
+    };
   }
 }

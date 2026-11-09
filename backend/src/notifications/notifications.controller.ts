@@ -1,45 +1,75 @@
-﻿import { Body, Controller, Get, Param, Patch, Post, Query, Req } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  Post,
+  Query,
+  Req,
+} from '@nestjs/common';
 import type { Request } from 'express';
+import { Roles } from '../auth/roles.decorator';
 import { CreateNotificationDto } from './dto/create-notification.dto';
 import { NotificationsService } from './notifications.service';
-import { Roles } from '../auth/roles.decorator';
+
+type AuthRequest = Request & {
+  user: {
+    sub: string;
+    organizationId: string;
+    roles: string[];
+    permissions?: string[];
+  };
+};
 
 @Roles('ADMIN', 'ASSET_MANAGER', 'EMPLOYEE')
 @Controller('notifications')
 export class NotificationsController {
   constructor(private readonly notifications: NotificationsService) {}
 
+  @Roles('ADMIN')
   @Post()
-  create(@Body() dto: CreateNotificationDto) {
-    return this.notifications.create(dto);
+  create(@Req() req: AuthRequest, @Body() dto: CreateNotificationDto) {
+    return this.notifications.create(req.user.organizationId, dto);
   }
 
   @Get()
   findAll(
-    @Req() req: Request & { user?: { sub?: string } },
-    @Query('recipientId') recipientId?: string,
+    @Req() req: AuthRequest,
     @Query('unreadOnly') unreadOnly?: string,
   ) {
-    const effectiveRecipientId = recipientId || req.user?.sub || '';
-    return this.notifications.findAll(effectiveRecipientId, unreadOnly === 'true');
+    return this.notifications.findAll(
+      req.user.organizationId,
+      req.user.sub,
+      unreadOnly === 'true',
+    );
   }
 
   @Patch(':id/read')
-  markRead(@Param('id') id: string) {
-    return this.notifications.markRead(id);
-  }
-
-  @Patch('read-all/:recipientId')
-  markAllReadByRecipient(@Param('recipientId') recipientId: string) {
-    return this.notifications.markAllRead(recipientId);
+  markRead(@Req() req: AuthRequest, @Param('id') id: string) {
+    return this.notifications.markRead(
+      req.user.organizationId,
+      req.user.sub,
+      id,
+    );
   }
 
   @Patch('read-all')
-  markAllRead(
-    @Req() req: Request & { user?: { sub?: string } },
-    @Body('recipientId') recipientId?: string,
+  markAllRead(@Req() req: AuthRequest) {
+    return this.notifications.markAllRead(
+      req.user.organizationId,
+      req.user.sub,
+    );
+  }
+
+  @Patch('read-all/:recipientId')
+  markAllReadByRecipient(
+    @Req() req: AuthRequest,
   ) {
-    const effectiveRecipientId = recipientId || req.user?.sub || '';
-    return this.notifications.markAllRead(effectiveRecipientId);
+    // Enforce self-only regardless of param in URL
+    return this.notifications.markAllRead(
+      req.user.organizationId,
+      req.user.sub,
+    );
   }
 }

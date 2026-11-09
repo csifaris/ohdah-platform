@@ -1,5 +1,5 @@
-﻿import { Bell, CheckCheck, Inbox } from 'lucide-react';
-import { useEffect, useMemo, useState } from 'react';
+import { Bell, CheckCheck, Inbox } from 'lucide-react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { NotificationFilters, NotificationList, type Notification, type NotificationFilter } from '../features/notifications';
 import { getApiErrorMessage } from '../services/api';
 import { listNotifications, markAllNotificationsRead, markNotificationRead } from '../services/notifications.service';
@@ -14,7 +14,7 @@ export function NotificationsPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  const fetchNotifications = () => {
+  const fetchNotifications = useCallback(() => {
     if (!user?.id) return;
     listNotifications(user.id)
       .then((data) => {
@@ -26,11 +26,11 @@ export function NotificationsPage() {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }, [user]);
 
   useEffect(() => {
     fetchNotifications();
-  }, [user?.id]);
+  }, [fetchNotifications]);
 
   const filtered = useMemo(() => {
     return notifications.filter((notification) => {

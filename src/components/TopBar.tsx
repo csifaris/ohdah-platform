@@ -1,8 +1,7 @@
-﻿/* eslint-disable react-hooks/set-state-in-effect, @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react';
 import { Bell, Menu, Search } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
-import { listEmployees } from '../services/employees.service';
+import { getMyEmployeeProfile } from '../services/employees.service';
 import { listNotifications } from '../services/notifications.service';
 import { Link } from 'react-router-dom';
 import logoUrl from '../assets/ohdah-logo.png';
@@ -11,7 +10,7 @@ type TopBarProps = { onMenuClick: () => void };
 
 export function TopBar({ onMenuClick }: TopBarProps) {
   const { user } = useAuth();
-  const [jobTitle, setJobTitle] = useState<string>('');
+  const [employeeJobTitle, setEmployeeJobTitle] = useState<string>('');
   const [unreadCount, setUnreadCount] = useState(0);
 
   const isAdmin = Boolean(user?.roles?.includes('ADMIN'));
@@ -21,16 +20,11 @@ export function TopBar({ onMenuClick }: TopBarProps) {
   useEffect(() => {
     if (!user) return;
 
-    if (isAdmin) {
-      setJobTitle('مسؤول النظام');
-    } else if (isAssetManager) {
-      setJobTitle('مسؤول العهد والأصول');
-    } else if (isEmployee) {
-      listEmployees(user.email)
-        .then((employees) => {
-          const employee = employees.find((e: any) => e.email === user.email || e.name === user.name);
-          if (employee) {
-            setJobTitle(employee.jobTitle);
+    if (isEmployee) {
+      getMyEmployeeProfile()
+        .then((employee) => {
+          if (employee?.jobTitle) {
+            setEmployeeJobTitle(employee.jobTitle);
           }
         })
         .catch(console.error);
@@ -41,7 +35,13 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         setUnreadCount(notifications.length);
       })
       .catch(console.error);
-  }, [user, isAdmin, isAssetManager, isEmployee]);
+  }, [user, isEmployee]);
+
+  const displayJobTitle = isAdmin
+    ? 'مسؤول النظام'
+    : isAssetManager
+    ? 'مسؤول العهد والأصول'
+    : employeeJobTitle || 'موظف';
 
   const homeLink = isAdmin
     ? '/admin/dashboard'
@@ -106,7 +106,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
         <div className="flex items-center gap-3 border-r border-[#D9E2EC] pr-4">
           <div className="hidden text-right sm:block">
             <p className="text-sm font-bold text-[#071426]">{user?.name || 'مستخدم النظام'}</p>
-            <p className="text-xs text-[#64748B]">{jobTitle || (isAdmin ? 'مسؤول النظام' : isAssetManager ? 'مسؤول العهد والأصول' : 'موظف')}</p>
+            <p className="text-xs text-[#64748B]">{displayJobTitle}</p>
           </div>
         </div>
       </div>

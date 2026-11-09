@@ -1,311 +1,281 @@
-# Ohdah Asset Management Platform
+# Ohdah Asset Management Platform (منصة عهدة)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Ohdah-Asset%20Management-0B1F3A?style=for-the-badge" alt="Ohdah Platform">
   <img src="https://img.shields.io/badge/RTL-Arabic%20Platform-D4AF37?style=for-the-badge" alt="RTL">
-  <img src="https://img.shields.io/badge/Full%20Stack-React%20%2B%20NestJS-61DAFB?style=for-the-badge" alt="Full Stack">
+  <img src="https://img.shields.io/badge/Full%20Stack-React%2019%20%2B%20NestJS%2011-61DAFB?style=for-the-badge" alt="Full Stack">
+  <img src="https://img.shields.io/badge/TypeScript-5.x-blue?style=for-the-badge&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/PostgreSQL-14%2B-336791?style=for-the-badge&logo=postgresql" alt="PostgreSQL">
 </p>
 
 ---
 
-## 📌 Project Overview
+## 📌 نبذة عن المشروع (Project Overview)
 
-**Ohdah** is an enterprise asset and custody management platform designed to simplify the management of organizational assets, employee custody records, requests, approvals, and tracking processes.
+**منصة عهدة (Ohdah)** هي نظام متكامل لإدارة الأصول والعهد المؤسسية مصمم خصيصاً للمؤسسات والشركات لتنظيم وتتبع حركة الأصول والعهد الشخصية للموظفين، وتوثيق طلبات التسليم والإرجاع والصيانة إلكترونياً وبواجهة عربية كاملة (RTL).
 
-The platform provides a centralized system for managing:
-
-- Assets inventory.
-- Employee custody assignments.
-- Asset requests and approvals.
-- Asset return processes.
-- User roles and permissions.
-- Maintenance management.
-- Notifications.
-- Reports and analytics.
-
-The system is built with a modern full-stack architecture using:
-
-- React + Vite for the frontend.
-- NestJS for the backend.
-- Prisma ORM.
-- PostgreSQL database.
-- TypeScript.
-- Tailwind CSS.
-- RTL Arabic-first user experience.
+النظام يوفر إدارة مركزية لكل من:
+- **سجل الأصول والتصنيفات (Asset Inventory):** تسجيل وتصنيف وتتبع حالة الأصول المؤسسية.
+- **إسناد العهد وإرجاعها (Custody Tracking):** إسناد العهد للموظفين، توثيق تاريخ الاستلام والإرجاع، وإدارة طلبات العهد.
+- **طلبات الصيانة (Maintenance Management):** تسجيل بلاغات الصيانة، تحديد الأولويات، ومتابعة التنفيذ والتكاليف.
+- **إدارة المستخدمين والصلاحيات (RBAC):** التحكم في الوصول وفق الأدوار الوظيفية (`ADMIN`, `ASSET_MANAGER`, `EMPLOYEE`).
+- **الإشعارات النظامية (Notifications):** تنبيهات تفاعلية للمستخدمين حول تحديثات طلباتهم والعهد المسندة إليهم.
+- **التقارير وسجلات التدقيق (Reports & Audit Logs):** ملخصات الأصول، تقارير الصيانة، ومتابعة العمليات.
 
 ---
 
-# 🎯 Project Objectives
+## 🎯 أهداف المشروع (Project Objectives)
 
-The main goals of Ohdah Platform are:
-
-- Digitize asset custody workflows.
-- Reduce manual tracking of organizational assets.
-- Improve accountability between employees and asset managers.
-- Provide role-based access control.
-- Maintain clear history of asset movements.
-- Improve operational efficiency.
+- أتمتة دورة حياة العهد والأصول المؤسسية بالكامل.
+- تقليل الأخطاء الناتجة عن التتبع اليدوي أو الورقي.
+- تعزيز المسؤولية والشفافية بين الموظفين ومسؤولي العهد.
+- عزل بيانات المؤسسات المتعددة (Multi-Tenant Isolation) بدقة وأمان.
+- توفير تجربة مستخدم عربية احترافية سريعة ومتجاوبة.
 
 ---
 
-# 👥 System Users & Roles
+## 👥 الأدوار ومسارات الاستخدام (Users & Roles)
 
-## 1. Employee
+### 1. الموظف (Employee)
+- استعراض الأصول المتاحة في المؤسسة.
+- تقديم طلبات استلام عهدة جديدة ومتابعة حالتها.
+- عرض العهد الحالية المسندة إليه وتفاصيلها.
+- تقديم طلبات إرجاع العهدة أو بلاغات صيانة للأصول التالفة.
+- استلام إشعارات فورية عند الموافقة أو الرفض أو التحديث.
 
-Employees can:
+### 2. مسؤول العهد والأصول (Asset Manager)
+- إدارة جرد الأصول وتصنيفاتها وإضافة أصول جديدة.
+- مراجعة طلبات العهد المقدمة من الموظفين (الموافقة أو الرفض مع ذكر الأسباب).
+- إسناد الأصول مباشرة وإتمام إجراءات الإرجاع بعد التحقق من حالتها.
+- متابعة طلبات وبلاغات الصيانة وتحديد الفنيين والتكاليف.
+- استعراض التقارير الإحصائية لحالة الأصول والصيانة.
 
-- Browse available assets.
-- Submit custody requests.
-- Track request status.
-- Receive assigned assets.
-- Confirm asset receipt.
-- Request asset returns.
-- View notifications.
-
----
-
-## 2. Asset Manager / IT Administrator
-
-Asset managers can:
-
-- Manage assets inventory.
-- Add and update assets.
-- Review custody requests.
-- Approve or reject requests.
-- Assign assets to employees.
-- Manage returns.
-- Track asset status.
+### 3. مدير النظام (System Administrator)
+- إدارة حسابات المستخدمين والموظفين والأقسام.
+- التحكم بالأدوار والصلاحيات (Permissions Matrix).
+- مراقبة سجلات التدقيق (Audit Logs) لجميع العمليات الحساسة.
+- ضبط الإعدادات العامة للمؤسسة.
 
 ---
 
-## 3. System Administrator
+## 🏗️ بنية المشروع (Project Structure)
 
-Administrators can:
-
-- Manage users.
-- Manage roles.
-- Manage permissions.
-- Configure system settings.
-- Monitor platform operations.
-
----
-
-# 🏗️ System Architecture
-
-The project follows a full-stack architecture:
+المشروع مبني كـ Full-Stack Monorepo يحتوي على الواجهة الأمامية في الجذر (Root) وخدمات الواجهة الخلفية في مجلد `backend`:
 
 ```
-Ohdah Platform
-
-Frontend
+ohdah/
+├── src/                                  # الواجهة الأمامية (React 19 + TypeScript)
+│   ├── assets/                           # الصور والشعارات
+│   ├── components/                       # المكونات المشتركة وقوائم التنقل
+│   ├── context/                          # سياق المصادقة (AuthContext)
+│   ├── features/                         # وحدات الأعمال (Assets, Custody, Maintenance, ...)
+│   ├── hooks/                            # الخطافات المخصصة (useEmployee, useDebounce, ...)
+│   ├── layouts/                          # قوالب الصفحات بحسب الدور (Admin, AssetManager, Portal)
+│   ├── pages/                            # صفحات التطبيق
+│   ├── services/                         # خدمات الاتصال بالخادم و Axios Interceptor
+│   └── types/                            # التعريفات ونماذج البيانات
+├── package.json                          # إعدادات وتبعية الواجهة الأمامية وأوامر التشغيل المشتركة
+├── vite.config.ts                        # إعدادات بناء Vite
+├── tailwind.config.ts                    # إعدادات Tailwind CSS والسمات اللونية
+├── .env.example                          # نموذج متغيرات بيئة الواجهة الأمامية
 │
-├── React
-├── Vite
-├── TypeScript
-├── Tailwind CSS
-└── RTL Arabic UI
-
-
-Backend
+├── backend/                              # الواجهة الخلفية (NestJS 11 + Prisma ORM)
+│   ├── prisma/                           # ملفات Schema والتهجير (Migrations) وبذور البيانات
+│   │   ├── schema.prisma                 # نموذج قاعدة البيانات العلائقية
+│   │   ├── migrations/                   # سجل تهجيرات SQL المتسلسلة
+│   │   └── seed.ts                       # سكريبت بذور البيانات لبيئة التطوير
+│   ├── src/                              # شيفرة الواجهة الخلفية
+│   │   ├── assets/                       # وحدة إدارة الأصول والتصنيفات
+│   │   ├── auth/                         # وحدة المصادقة وإدارة الجلسات و Rate Limiting
+│   │   ├── custody/                      # وحدة إدارة طلبات وسجلات العهد
+│   │   ├── employees/                    # وحدة إدارة بيانات الموظفين
+│   │   ├── maintenance/                  # وحدة إدارة طلبات الصيانة
+│   │   ├── notifications/                # وحدة الإشعارات
+│   │   ├── reports/                      # وحدة التقارير والإحصاءات
+│   │   ├── users/                        # وحدة إدارة المستخدمين والأدوار
+│   │   └── prisma/                       # خدمة الاتصال بقاعدة البيانات
+│   ├── test/                             # الاختبارات الآلية (Unit, Integration, Security)
+│   ├── package.json                      # تبعيات وأوامر تشغيل الواجهة الخلفية
+│   └── .env.example                      # نموذج متغيرات بيئة الواجهة الخلفية
 │
-├── NestJS
-├── Prisma ORM
-├── PostgreSQL
-└── REST API
+├── API_DOCUMENTATION.md                  # التوثيق التفصيلي لنقاط النهاية (REST API)
+├── SYSTEM_ARCHITECTURE.md                # وثيقة البنية المعمارية ونموذج الأمان
+└── README.md                             # هذا الملف
 ```
 
 ---
 
-# 📂 Project Structure
+## ⚙️ متطلبات التشغيل (System Requirements)
 
-```
-ohdah-platform/
-
-├── frontend/
-│   ├── React Application
-│   ├── Components
-│   ├── Pages
-│   └── Services
-
-├── backend/
-│   ├── NestJS Application
-│   ├── Modules
-│   ├── Controllers
-│   ├── Services
-│   └── Prisma
-
-├── README.md
-├── API_DOCUMENTATION.md
-└── SYSTEM_ARCHITECTURE.md
-```
+- **Node.js:** الإصدار 20 أو أحدث (موصى به v20.x أو v24.x LTS).
+- **PostgreSQL:** الإصدار 14 أو أحدث (يعمل افتراضياً على المنفذ `5432`).
+- **npm:** مدير الحزم الافتراضي لـ Node.js.
 
 ---
 
-# ⚙️ Requirements
+## 🚀 التثبيت والتشغيل المحلي (Setup & Local Run)
 
-Before running the project, install:
+### الخطوة 1: تثبيت تبعيات الواجهة الأمامية والجذر
 
-- Node.js 20+
-- PostgreSQL 14+
-- npm
-
----
-
-# 🚀 Installation & Running
-
-## Clone Repository
+من المجلد الرئيسي للمشروع (`C:\xampp\htdocs\ohdah`):
 
 ```bash
-git clone https://github.com/csifaris/ohdah-platform.git
-
-cd ohdah-platform
-```
-
----
-
-# Frontend Setup
-
-```bash
-cd frontend
-
+# تثبيت حزم الواجهة الأمامية
 npm install
 
-npm run dev
+# إعداد ملف البيئة للواجهة الأمامية
+cp .env.example .env
 ```
 
-Frontend will start using Vite development server.
+محتوى ملف `.env` للواجهة الأمامية:
+```env
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_ORGANIZATION_ID=11111111-1111-4111-8111-111111111111
+```
 
 ---
 
-# Backend Setup
+### الخطوة 2: تثبيت وإعداد الواجهة الخلفية وقاعدة البيانات
+
+في نافذة طرفية أخرى أو بعد الانتقال لمجلد `backend`:
 
 ```bash
 cd backend
 
+# تثبيت حزم الواجهة الخلفية
 npm install
 
+# إعداد ملف البيئة للواجهة الخلفية
+cp .env.example .env
+```
+
+قم بفتح `backend/.env` وتعديل بيانات الاتصال بقاعدة البيانات ومفاتيح JWT السرية:
+```env
+NODE_ENV=development
+PORT=3000
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/ohdah?schema=public"
+JWT_ACCESS_SECRET="YOUR_LONG_RANDOM_ACCESS_SECRET_KEY"
+JWT_ACCESS_EXPIRES_IN="15m"
+JWT_REFRESH_SECRET="YOUR_LONG_RANDOM_REFRESH_SECRET_KEY"
+JWT_REFRESH_EXPIRES_IN="7d"
+CORS_ORIGINS="http://localhost:5173,http://127.0.0.1:5173"
+```
+
+توليد عميل Prisma وتطبيق التهجيرات:
+```bash
+# توليد Prisma Client
 npm run prisma:generate
 
+# التحقق من صحة Schema
+npm run prisma:validate
+
+# تطبيق التهجيرات على قاعدة البيانات المحلية (عند توفر خدمة PostgreSQL)
+# ملاحظة: تأكد من تشغيل خدمة PostgreSQL محلياً أولاً
 npm run prisma:migrate
 
+# تعبئة بيانات الاختبار الأولية (بيئة التطوير فقط)
 npm run prisma:seed
-
-npm run start:dev
 ```
+
+> [!WARNING]
+> سكريبت `prisma:seed` محمي برمجياً وممنوع من العمل تماماً في بيئة الإنتاج (`NODE_ENV=production`).
 
 ---
 
-# 🔐 Default Administrator Account
+### الخطوة 3: تشغيل بيئة التطوير
 
-Development administrator:
-
-```
-Email:
-admin@ohdah.local
-
-Password:
-ChangeMe123!
+**الخيار الأول (الموصى به - تشغيل الواجهة الأمامية والخلفية معاً من الجذر):**
+```bash
+npm run dev
 ```
 
-⚠️ Change the password immediately outside local development environments.
+**الخيار الثاني (تشغيل كل خادم على حدة):**
+- لتشغيل الواجهة الأمامية (على المنفذ `5173`):
+  ```bash
+  npm run dev:frontend
+  ```
+- لتشغيل خادم الواجهة الخلفية (على المنفذ `3000`):
+  ```bash
+  npm run dev:backend
+  # أو من داخل مجلد backend:
+  cd backend && npm run start:dev
+  ```
 
 ---
 
-# 🧪 Validation & Testing
+## 🔐 بيانات الدخول الافتراضية (بيئة التطوير فقط)
 
-Frontend:
+عند تشغيل سكريبت `seed` في بيئة التطوير، يتم تجهيز الحسابات التالية:
 
+| الدور (Role) | البريد الإلكتروني | كلمة المرور |
+| :--- | :--- | :--- |
+| **مدير النظام (Admin)** | `admin@ohdah.local` | `ChangeMe123!` |
+| **مسؤول العهد (Asset Manager)** | `asset.manager@ohdah.local` | `ChangeMe123!` |
+| **موظف (Employee)** | `employee1@ohdah.local` | `ChangeMe123!` |
+
+> [!IMPORTANT]
+> يجب تغيير كلمات المرور ومفاتيح JWT السرية فوراً عند الانتقال لأي بيئة خارج بيئة التطوير المحلية.
+
+---
+
+## 🛡️ الميزات الأمنية المطبقة فعلياً (Implemented Security Features)
+
+- **تدوير رموز التحديث (Refresh Token Rotation):** إصدار رمز تحديث مشفر (Opaque SHA-256 Token) يُلغى فور استخدامه ويستبدل برمز جديد مع كل دورة تحديث.
+- **كشف هجمات إعادة الاستخدام (Replay Attack Detection):** في حال محاولة استخدام رمز تحديث ملغي مسبقاً، يلغي النظام فورياً جميع جلسات المستخدم النشطة ويزيد رقم إصدار الرمز.
+- **إلغاء صلاحية الجلسات الفوري (Token Versioning):** دعم حقل `tokenVersion` على جدول المستخدم، مما يمكن من الإلغاء اللحظي لكافة الرموز الصادرة فور تسجيل الخروج من كافة الأجهزة أو تغيير كلمة المرور.
+- **تنسيق التحديث بين التبويبات (Cross-Tab Coordination):** دعم Web Locks API في المتصفح لمنع تضارب طلبات التحديث المتزامنة عبر أكثر من تبويب.
+- **عزل بيانات المؤسسات (Multi-Tenant Isolation):** يتم استخراج `organizationId` حصرياً من رمز JWT المعتمد، ولا يمكن للمستخدم الوصول لبيانات مؤسسة أخرى حتى لو تلاعب ببيانات الطلب (Anti-IDOR).
+- **التحكم بالوصول القائم على الأدوار (RBAC):** حماية كافة المسارات عبر `JwtAuthGuard` و `RolesGuard` و `PermissionsGuard`.
+- **الحد من معدل الطلبات (Rate Limiting):** حماية مسارات الدخول والتسجيل والتحديث من هجمات القوة الغاشمة (Brute Force).
+- **ترويس الأمان و CORS:** إعدادات صارمة لـ CORS وترويسات الأمان (`X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `HSTS`, `Referrer-Policy`).
+
+---
+
+## 🧪 الفحص والاختبارات الآلية (Testing & Validation)
+
+### فحص الواجهة الخلفية (Backend)
+من داخل مجلد `backend`:
 ```bash
+cd backend
+
+# التحقق من صحة مخطط قاعدة البيانات
+npm run prisma:validate
+
+# فحص الأخطاء والتنسيق البرمجي
 npm run lint
 
-npm run build
-```
-
-Backend:
-
-```bash
-npm run lint
-
+# تشغيل حزمة الاختبارات الآلية
 npm test
 
+# تجربة بناء الإنتاج
+npm run build
+```
+
+### فحص الواجهة الأمامية (Frontend)
+من الجذر:
+```bash
+# فحص ESLint
+npm run lint
+
+# اختبار بناء الإنتاج والتحقق من الأنواع (TypeScript Check + Vite Build)
 npm run build
 ```
 
 ---
 
-# ✨ Main Features
+## ⚠️ القيود والميزات غير المكتملة (Limitations & Current Scope)
 
-## Asset Management
-
-- Create assets.
-- Update assets.
-- Track asset status.
-- Manage categories.
-- Maintain asset information.
-
-## Custody Management
-
-- Create custody requests.
-- Approve and reject requests.
-- Assign assets.
-- Track custody lifecycle.
-- Handle asset returns.
-
-## User Management
-
-- User accounts.
-- Roles.
-- Permissions.
-- Access control.
-
-## Notifications
-
-- User notifications.
-- Read/unread status.
-- System updates.
-
-## Maintenance
-
-- Maintenance requests.
-- Maintenance tracking.
-- Status management.
+بكل دقة وشفافية برمجية، يرجى ملاحظة الآتي حول الوضع الراهن للمشروع:
+1. **DPoP (Demonstrating Proof-of-Possession):** **غير مطبق** في المشروع حالياً. الحماية المعتمدة هي Refresh Token Rotation + SHA-256 Hash + Token Versioning + Short-lived Bearer JWT.
+2. **اختبارات تكامل قاعدة البيانات المباشرة (Live DB Integration):** يتطلب ملف الاختبار `auth-postgres-integration.spec.ts` تشغيل خدمة PostgreSQL محلياً على المنفذ `5432`؛ وفي حال توقف الخدمة يتم تخطي الاختبارات الحقيقية بأمان مع طباعة إشعار توضيحي.
+3. **اختبارات الواجهة الأمامية (Frontend Tests):** لا توجد حزمة اختبارات وحدة آلية (مثل Vitest أو Jest) معدة مسبقاً للواجهة الأمامية في `package.json` الرئيسي، ويعتمد الفحص الحالي على `eslint` و `tsc -b`.
+4. **تقسيم الحزم الكبيرة (Code Splitting):** يُظهر بناء Vite تحذيراً حول تجاوز ملف `index.js` حاجز 500 kB، ويوصى في المراحل القادمة باعتماد Lazy Loading للصفحات.
 
 ---
 
-# 🎨 UI / UX Features
+## 🎓 الاعتماد الأكاديمي (Academic Affiliation)
 
-- Arabic RTL interface.
-- Enterprise dashboard design.
-- Navy and gold branding.
-- Responsive layout.
-- Role-based navigation.
-- Modern component-based UI.
-
----
-
-# 📚 Documentation
-
-Additional documentation:
-
-- `SYSTEM_ARCHITECTURE.md`
-- `API_DOCUMENTATION.md`
-
----
-
-# 🔒 Security
-
-The platform includes:
-
-- Authentication system.
-- JWT-based authorization.
-- Role-based permissions.
-- Protected API routes.
-
----
-
-# 🎓 Academic Affiliation
-
-This project was developed as part of the **Vibe Coding Course** at **SDAIA Academy**.
+تم تطوير هذا المشروع كجزء من **معسكر البرمجة السريعة (Vibe Coding Course)** لدى **أكاديمية سدايا (SDAIA Academy)**.
 
 <p align="center">
   <a href="https://github.com/SDAIAAcademy">
@@ -315,74 +285,25 @@ This project was developed as part of the **Vibe Coding Course** at **SDAIA Acad
 
 ---
 
-# 👨‍💻 Project Team
+## 👨‍💻 فريق العمل (Project Team)
 
-## 1. FARIS ALMUSHRAFI
+<div align="center">
 
-<p align="center">
-  <a href="https://github.com/csifaris">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 1 GitHub">
-  </a>
-</p>
+| المطور | حساب GitHub |
+| :--- | :--- |
+| **فارس المشرفي (Faris Almushrafi)** | [@csifaris](https://github.com/csifaris) |
+| **خالد صالح (Khalid Saleh)** | [@khaledsaleh1424-sudo](https://github.com/khaledsaleh1424-sudo) |
+| **سلمان الحماد (Salman Alhammad)** | [@engalhammad](https://github.com/engalhammad) |
+| **رنا الزهراني (Rana Alzhrani)** | [@RiixR1](https://github.com/RiixR1) |
+| **رند العنزي (Rand Alanazi)** | [@nra27158-ship-it](https://github.com/nra27158-ship-it) |
+| **رائد الحربي (Raeed Alharbi)** | [@RaeedAlharbi](https://github.com/RaeedAlharbi) |
+| **عفاف المطيري (Afaf AlMutairi)** | [@Afafbader999](https://github.com/Afafbader999) |
 
----
-
-## 2. Khalid saleh
-
-<p align="center">
-  <a href="https://github.com/khaledsaleh1424-sudo">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 2 GitHub">
-  </a>
-</p>
+</div>
 
 ---
 
-## 3. Salman Alhammad
+## 📄 الوثائق الإضافية (Documentation)
 
-<p align="center">
-  <a href="https://github.com/engalhammad">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 3 GitHub">
-  </a>
-</p>
-
----
-
-## 4. Rana Alzhrani
-
-<p align="center">
-  <a href="https://github.com/RiixR1">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 4 GitHub">
-  </a>
-</p>
-
----
-
-## 5. Rand Alanazi
-
-<p align="center">
-  <a href="https://github.com/nra27158-ship-it">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 5 GitHub">
-  </a>
-</p>
-
----
-
-## 6. Raeed Alharbi
-
-<p align="center">
-  <a href="https://github.com/RaeedAlharbi">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 6 GitHub">
-  </a>
-</p>
-
----
-
-## 7. Afaf AlMutairi
-
-<p align="center">
-  <a href="https://github.com/Afafbader999">
-    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" alt="Team Member 7 GitHub">
-  </a>
-</p>
-
----
+- [توثيق واجهة برمجة التطبيقات (API Documentation)](API_DOCUMENTATION.md)
+- [وثيقة البنية المعمارية والأمان (System Architecture)](SYSTEM_ARCHITECTURE.md)
